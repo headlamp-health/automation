@@ -1,0 +1,30 @@
+appId: com.headlamp.uno.stage
+---
+- startRecording:
+    path: '/Users/kartikgupta/Desktop/Automation_framework/untitled\ folder'
+- killApp
+- launchApp:
+   appId: com.headlamp.uno.stage
+- tapOn: "󰂜"
+- tapOn: "Logging reminders"
+- tapOn:
+    point: "50%,55%"
+
+- scrollUntilVisible:
+    element:
+      text: 04:45 PM
+    direction: DOWN
+- tapOn: 04:45 PM
+- tapOn: SAVE
+- waitForAnimationToEnd
+- killApp 
+- waitForAnimationToEnd
+- swipe:
+    from:
+      id: com.android.systemui:id/clock
+    direction: down
+- assertVisible: Headlamp Stage    
+- tapOn:
+    text: It's time to log your recent mood in the Headlamp app.
+- assertVisible: Home
+- stopRecording

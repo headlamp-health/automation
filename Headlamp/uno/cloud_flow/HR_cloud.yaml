@@ -1,0 +1,743 @@
+appId: com.headlamp.uno.stage
+
+--- 
+- launchApp:
+   appId: com.headlamp.uno.stage
+   clearState: true
+   clearKeychain: true
+   stopApp: false
+   permissions:
+    all: allow
+- waitForAnimationToEnd
+   
+- assertNoDefectsWithAI
+- tapOn: already-have-account
+
+
+- tapOn: "email"
+- inputText: "maestro.test2@yopmail.com"
+
+- tapOn: "password"
+- inputText: "Headlamp@123"
+- tapOn: "sign-in-button"
+- assertNoDefectsWithAI
+
+- runFlow:
+   when:
+    visible: Records ready notification
+   commands:
+    - tapOn: CONTINUE
+    - waitForAnimationToEnd:
+        timeout: 5000
+    - assertVisible: Congratulations
+    - tapOn: CONTINUE    
+- runFlow:
+    when:
+      visible: "Higher power level = better insights"
+    commands:
+      - tapOn:
+         point: 50%,47%
+      - waitForAnimationToEnd:
+          timeout: 5000 
+- runFlow:
+   when:
+      visible: SUGGEST ACTIVITIES FOR ME 
+   commands:
+      - tapOn: SUGGEST ACTIVITIES FOR ME
+      - waitForAnimationToEnd:
+         timeout: 9000 
+      - tapOn: ACCEPT ACTIVITIES
+      - tapOn: CONTINUE
+      - tapOn: CONTINUE
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+- assertNoDefectsWithAI
+- runFlow:
+   when:
+      visible: skip for now
+   commands:
+      - tapOn:
+          text: skip for now
+      - waitForAnimationToEnd:
+          timeout: 9000    
+- runFlow:
+   when:
+      visible: your insights data has been converted and simplified to match 
+   commands:
+      - assertVisible : GOT IT
+      - tapOn:
+          text: GOT IT
+      - waitForAnimationToEnd:
+          timeout: 9000  
+- runFlow:
+   when:
+      visible: we've updated our Hypothesis to be even more personalized
+   commands:
+      - assertVisible : GOT IT
+      - tapOn:
+          text: GOT IT
+      - waitForAnimationToEnd:
+          timeout: 9000                             
+   
+- tapOn: "Power"
+- scrollUntilVisible:
+    element:  
+      text: Health Records
+    direction: DOWN
+- tapOn:
+    text: "Health records"
+- runFlow:
+    when :
+      visible : "continue"
+    commands:
+     - tapOn:
+        text: "continue"
+- assertNoDefectsWithAI
+
+# ADDING 3 DIFF PROVIDER 
+- assertVisible: "Primary care provider"
+- tapOn:
+   text : "add Provider"
+   below:
+    text : "Primary care provider"
+- waitForAnimationToEnd
+
+- assertNoDefectsWithAI
+- tapOn:
+    id: "text-input-outline"
+    index: 0
+- waitForAnimationToEnd
+
+- inputText: "Dr. J."    
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+    index: 1
+- inputText: "Doe"   
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+    index: 2
+- inputText: "ABC hospital"       
+- waitForAnimationToEnd
+- tapOn: "ADD PROVIDER"
+- waitForAnimationToEnd
+- assertVisible :
+    text : Dr. J. Doe
+    below:
+      text : "Primary care provider"
+- scrollUntilVisible:
+    element:
+      text: Add MEDICATION
+    direction: DOWN
+    centerElement: false          
+- assertVisible: "Mental health care providers"
+- tapOn:
+   text : "add Provider"
+   below:
+    text : "Mental health care providers"
+- assertNoDefectsWithAI
+- waitForAnimationToEnd
+
+
+
+- tapOn: "Provider type"
+- waitForAnimationToEnd
+- assertVisible: "Psychiatric Prescriber (Psychiatrist, Nurse Practitioner, Physician Assistant, etc.)"
+- assertVisible: "Therapist / Psychologist"
+- waitForAnimationToEnd
+
+- tapOn: "Therapist / Psychologist"
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+    index: 0
+- waitForAnimationToEnd
+- inputText: "Dr. B."    
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+    index: 1
+- waitForAnimationToEnd
+- inputText: "Brown"   
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+    index: 2
+- inputText: "ABC hospital"       
+- waitForAnimationToEnd
+- tapOn: "ADD PROVIDER"
+- waitForAnimationToEnd
+- assertVisible :
+    text : Dr. B. Brown
+    below:
+      text : "Mental health care providers"
+- waitForAnimationToEnd
+- tapOn:
+   text : "add Provider"
+   below:
+    text : "Mental health care providers"
+- assertNoDefectsWithAI
+- tapOn: "Provider type"
+- waitForAnimationToEnd
+- assertVisible: "Psychiatric Prescriber (Psychiatrist, Nurse Practitioner, Physician Assistant, etc.)"
+- assertNotVisible: "Therapist / Psychologist"
+- waitForAnimationToEnd
+
+- tapOn: "Psychiatric Prescriber (Psychiatrist, Nurse Practitioner, Physician Assistant, etc.)"
+- waitForAnimationToEnd
+
+- tapOn:
+    id: "text-input-outline"
+    index: 0
+- waitForAnimationToEnd
+
+- inputText: "Dr. G."    
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+    index: 1
+- waitForAnimationToEnd
+
+- inputText: "Glover"   
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+    index: 2
+- inputText: "ABC hospital"       
+- waitForAnimationToEnd
+- tapOn: "ADD PROVIDER"
+- waitForAnimationToEnd
+
+- assertNoDefectsWithAI
+
+#  add medication
+
+
+- scrollUntilVisible:
+    element:
+      text: Add MEDICATION
+    direction: DOWN
+    centerElement: true      
+- waitForAnimationToEnd        
+- assertVisible: "MEDICATIONS"
+- waitForAnimationToEnd
+- tapOn: "Add MEDICATION"
+- waitForAnimationToEnd
+- tapOn: "Medication name"
+- waitForAnimationToEnd
+- inputText: "paracetamol"
+- waitForAnimationToEnd
+- tapOn:
+    point: "50%,37%"
+- waitForAnimationToEnd
+
+- tapOn:
+    id: "text-input-outline"
+    index: 0
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- inputText: 500 mg    
+
+- tapOn:
+    id: "text-input-outline"
+    index: 1
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- inputText: 2 
+- tapOn: "Month"
+- waitForAnimationToEnd
+- tapOn: "October"
+- waitForAnimationToEnd
+- tapOn: "Year"
+- waitForAnimationToEnd
+- tapOn: 
+    text : "2023"
+    retryTapIfNoChange: false
+- tapOn:
+    text: "ADD MEDICATION"
+    retryTapIfNoChange: false      
+- assertVisible :
+    text : "Paracetamol\n"
+    below:
+      text : "MEDICATIONS"
+
+# adding symptoms and asserting the number in front 
+
+- scrollUntilVisible:
+    element:
+      text: Add Symptoms
+    direction: DOWN
+    centerElement: true          
+- assertVisible: "Symptoms"
+- tapOn: "Add Symptoms"
+- assertNoDefectsWithAI
+- assertVisible: "Mood / emotions"
+- tapOn: "Low or depressed mood"
+- assertVisible: "Any unselected symptoms will appear in your Symptoms History."
+- assertNoDefectsWithAI
+- tapOn: "Constant sadness/depressed mood"
+- tapOn: "Difficulty falling asleep"
+- scrollUntilVisible:
+    element:
+      text: SAVE
+    direction: DOWN
+    centerElement: false
+- tapOn: 
+    text: SAVE
+    retryTapIfNoChange: false
+
+- waitForAnimationToEnd
+- assertVisible: 
+    text : "2"
+    rightOf :
+      text: "Low or depressed mood"
+- assertVisible:  "Energy / focus"
+- waitForAnimationToEnd
+- tapOn: "More energy or self-confidence than normal"
+- assertNoDefectsWithAI
+- tapOn: "Dramatic mood swings"
+- waitForAnimationToEnd
+- tapOn: "Increased energy"
+- scrollUntilVisible:
+    element:
+      text: SAVE
+    direction: DOWN
+    centerElement: false
+- waitForAnimationToEnd
+
+- tapOn: 
+    text: SAVE
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+
+- assertVisible: 
+    text : "2"
+    rightOf :
+      text: "More energy or self-confidence than normal" 
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    element:
+      text: Life events
+    direction: DOWN
+    centerElement: true
+- waitForAnimationToEnd
+
+- assertVisible: 
+    text : "Food or eating related issues"
+    below :
+     text : impulse related
+- tapOn : "Food or eating related issues"
+- waitForAnimationToEnd
+- tapOn: "Binge-eating or overeating"
+- tapOn:
+    id: "button"
+- waitForAnimationToEnd
+- assertVisible: 
+    text : "1"
+    rightOf :
+      text: "Food or eating related issues"    
+
+
+- scrollUntilVisible:
+    element:
+      text: Other 
+    direction: DOWN
+    centerElement: true
+- assertVisible: 
+    text : "Trauma related symptoms"
+    below :
+     text : "Bizarre or unusual experiences"
+- tapOn: "Trauma related symptoms"
+- tapOn: "Nightmares"
+- waitForAnimationToEnd
+- tapOn: "Flashbacks"
+- waitForAnimationToEnd
+- tapOn: SAVE
+- waitForAnimationToEnd
+
+- scrollUntilVisible:
+    element:
+      text: DONE 
+    direction: DOWN
+    centerElement: False
+- waitForAnimationToEnd
+# done button
+- tapOn:
+    id: "button"
+
+# move to history flow 
+
+- scrollUntilVisible:
+    element:
+      text: "Dr. J. Doe"
+      below :
+        text: "Primary care provider"
+    direction: UP
+    centerElement: true
+
+- tapOn: "Dr. J. Doe"
+- waitForAnimationToEnd
+
+# move to history 
+- tapOn:
+    id: "button-text"
+- assertVisible: "Month is required"
+- tapOn: "Month"
+- waitForAnimationToEnd
+- tapOn: "October"
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+
+- assertVisible: "Year is required"
+- waitForAnimationToEnd
+- tapOn: "Year"
+- waitForAnimationToEnd
+- tapOn: "2022"
+- waitForAnimationToEnd
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+
+- waitForAnimationToEnd
+
+- assertNotVisible :
+    text: "Dr. J. Doe"
+    below:
+      text: "Primary care provider"
+- waitForAnimationToEnd
+
+- scrollUntilVisible:
+    element:
+      text: Medications
+    direction: DOWN
+    centerElement: false
+- waitForAnimationToEnd
+
+- assertVisible: 
+    text : "Dr. B. Brown"
+    above:
+      text: "Dr. G. Glover"
+- tapOn: "Dr. B. Brown"
+- waitForAnimationToEnd
+
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+- assertVisible: "Month is required"
+- tapOn: "Month"
+- tapOn: "july"
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+
+- assertVisible: "Year is required"
+- waitForAnimationToEnd
+- tapOn: "Year"
+- waitForAnimationToEnd
+- tapOn: "2023"
+- waitForAnimationToEnd
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+
+- assertNotVisible :
+    text: "Dr. B. Brown"
+    below:
+      text: "Mental health care providers"
+- scrollUntilVisible:
+    element:
+      text : Dr. G. Glover
+      below:
+        text : "Mental health care providers"
+    centerElement: false
+- tapOn: "Dr. G. Glover"
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+
+- assertVisible: "Month is required"
+- tapOn: "Month"
+- tapOn: "june"
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+- assertVisible: "Year is required"
+- tapOn: "Year"
+- scrollUntilVisible:
+    element:
+      text : 2005
+      below:
+        text : 2006
+- waitForAnimationToEnd
+- tapOn: "2005"
+- waitForAnimationToEnd
+
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- assertNotVisible :
+    text: "Dr. G. Glover"
+    below:
+      text: "Mental health care providers"
+
+# move medication to history 
+
+- scrollUntilVisible:
+    element:
+      text : add medication
+    centerElement: false
+
+- assertVisible :
+    text : "Paracetamol\n"
+    below:
+      text : "MEDICATIONS"
+- tapOn: "Paracetamol\n"
+
+- waitForAnimationToEnd
+- tapOn: "Month"
+- scrollUntilVisible:
+    element:
+      text : November
+      below:
+        text : "October"
+- tapOn: "November"
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+- assertVisible: "Year is required"
+- tapOn: "Year"
+- waitForAnimationToEnd
+- tapOn: "2023"
+- waitForAnimationToEnd
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+
+
+
+
+
+# remove symptoms
+
+- scrollUntilVisible:
+    element:
+      text: "ADD/REMOVE SYMPTOMS"
+    direction: DOWN
+    centerElement: true          
+
+- tapOn: "ADD/REMOVE SYMPTOMS"
+- assertNoDefectsWithAI
+- assertVisible: "Mood / emotions"
+- tapOn: "Low or depressed mood"
+- assertVisible: "Any unselected symptoms will appear in your Symptoms History."
+- assertNoDefectsWithAI
+- tapOn: "Constant sadness/depressed mood"
+- waitForAnimationToEnd
+- tapOn: "Difficulty falling asleep"
+- scrollUntilVisible:
+    element:
+      text: SAVE
+    direction: DOWN
+    centerElement: false
+- tapOn:
+    id: "button"
+- waitForAnimationToEnd
+- assertVisible:  "Energy / focus"
+- tapOn: "More energy or self-confidence than normal"
+- assertNoDefectsWithAI
+- tapOn: "Dramatic mood swings"
+- waitForAnimationToEnd
+- tapOn: "Increased energy"
+- scrollUntilVisible:
+    element:
+      text: SAVE
+    direction: DOWN
+    centerElement: false
+- waitForAnimationToEnd    
+- tapOn: SAVE
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    element:
+      text: Life events
+    direction: DOWN
+    centerElement: true
+- assertVisible: 
+    text : "Food or eating related issues"
+    below :
+     text : impulse related
+- tapOn : "Food or eating related issues"
+- waitForAnimationToEnd
+- tapOn: "Binge-eating or overeating"
+- tapOn:
+    id: "button"
+
+- scrollUntilVisible:
+    element:
+      text: Other 
+    direction: DOWN
+    centerElement: true
+- assertVisible: 
+    text : "Trauma related symptoms"
+    below :
+     text : "Bizarre or unusual experiences"
+- tapOn: "Trauma related symptoms"
+- waitForAnimationToEnd
+- tapOn: "Nightmares"
+- waitForAnimationToEnd
+- tapOn: "Flashbacks"
+- waitForAnimationToEnd
+- tapOn:
+    id: "button"
+- scrollUntilVisible:
+    element:
+      text: DONE 
+    direction: DOWN
+    centerElement: False
+
+# done button
+- tapOn:
+    id: "button"
+
+
+
+# go to history and remove provider  
+- tapOn:
+    text: "HISTORY"
+- assertVisible: 
+    text : "\nDr. J. Doe"
+    below: 
+      text : "Primary care providers"
+- tapOn:
+    id: "cardListItem"
+    index: 0
+- assertVisible: "Is this inaccurate?"
+- waitForAnimationToEnd
+# mark inaccurate
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- assertNotVisible :
+    text: "Dr. J. Doe"
+    below:
+      text: "Primary care provider"
+- waitForAnimationToEnd
+- tapOn:
+    id: "cardListItem"
+    index: 1
+    retryTapIfNoChange: false
+- assertVisible: "Dr. B. Brown"
+- tapOn:
+    id: "Button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- tapOn:
+    id: "cardListItem"
+    index: 1
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- assertVisible: "Dr. G. Glover"
+- tapOn:
+    id: "button-text"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+
+# medication in history , hide , unhide and remove
+
+
+- tapOn:
+    text: "HISTORY"
+- waitForAnimationToEnd
+
+- scrollUntilVisible:
+    element:
+      text: Add MEDICATION
+    direction: DOWN
+    centerElement: true    
+- waitForAnimationToEnd
+- tapOn: "2023-2023\nParacetamol\n"
+- waitForAnimationToEnd
+
+- assertVisible: 
+    text : "Mark as inaccurate"
+    above :
+      text : "Hide from providers"
+- waitForAnimationToEnd
+- tapOn: "Hide from providers"
+- waitForAnimationToEnd
+- assertVisible: "By tapping the button below, this item will not be visible to your healthcare providers."      
+- waitForAnimationToEnd
+- tapOn:
+    text : "HIDE"
+    retryTapIfNoChange: false
+
+- waitForAnimationToEnd
+- tapOn: "2023-2023\nParacetamol\n"
+- waitForAnimationToEnd
+
+- assertVisible: 
+    text : "Mark as inaccurate"
+    above :
+      text : "Show from providers"
+- waitForAnimationToEnd
+- tapOn: "Show from providers"
+- waitForAnimationToEnd
+- assertVisible: "By tapping the button below, this item will be visible to your healthcare providers."   
+- waitForAnimationToEnd
+- tapOn:
+    text : "SHOW"
+    retryTapIfNoChange: false
+
+- waitForAnimationToEnd
+- tapOn: "2023-2023\nParacetamol\n"
+- waitForAnimationToEnd
+- assertVisible: 
+    text : "Mark as inaccurate"
+    above :
+      text : "Hide from providers"
+- waitForAnimationToEnd
+
+- tapOn: "Mark as inaccurate"
+- tapOn:
+    id: "button-text"
+    retryTapIfNoChange: false
+
+
+
+
+
+# Family in hr
+- tapOn : "family" 
+- assertNoDefectsWithAI
+- assertVisible: "Family health"
+- tapOn: "ADD FAMILY HEALTH"
+- assertVisible: "Mother"
+- assertVisible: "Brother(s)"
+- tapOn: "Mother"
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    element:
+      text: "Other conditions" 
+    direction: DOWN
+    centerElement: False
+- tapOn: "Anxiety"
+- scrollUntilVisible:
+    element:
+      text: SAVE
+    direction: DOWN
+    centerElement: False
+- tapOn:
+    id: "button"    

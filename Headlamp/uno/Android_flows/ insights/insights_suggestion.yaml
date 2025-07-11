@@ -1,0 +1,37 @@
+appId: com.headlamp.uno.stage
+--- 
+- killApp
+- launchApp:
+   appId: com.headlamp.uno.stage
+- tapOn: "Insights"
+- swipe:
+    from:
+      text: activities
+    direction: left
+- tapOn:
+    text: "Moods"    
+- tapOn:
+    text: "SUGGESTIONS"
+- assertVisible:
+    id: "segmented-button-Days"
+- assertNoDefectsWithAI
+- tapOn:
+    point: "94%,49%"
+- assertVisible: "Suggestions"
+- assertNoDefectsWithAI
+- runFlow:
+    when:
+      visible:
+        id: "button"
+    commands:
+      - tapOn:
+          id: "button"
+      - assertNoDefectsWithAI    
+      - tapOn: "Done"    
+      - back
+      
+
+
+
+
+

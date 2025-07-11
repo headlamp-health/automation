@@ -1,0 +1,43 @@
+appId: com.headlamp.uno
+---
+
+- tapOn:
+    text : "HISTORY"
+- assertVisible: 
+    text : "\nDr. J. Doe, 󰅂"
+    below: 
+      text : "Primary care providers"
+- tapOn:
+    id: "cardListItem"
+    index: 0
+- assertVisible: "Is this inaccurate?"
+- waitForAnimationToEnd
+# mark inaccurate
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- assertNotVisible :
+    text: "\nDr. J. Doe, 󰅂"
+    below:
+      text: "Primary care provider"
+- waitForAnimationToEnd
+- tapOn:
+    id: "cardListItem"
+    index: 1
+    retryTapIfNoChange: false
+- assertVisible: "Dr. B. Brown"
+- tapOn:
+    id: "Button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- tapOn:
+    id: "cardListItem"
+    index: 1
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- assertVisible: "Dr. G. Glover"
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd

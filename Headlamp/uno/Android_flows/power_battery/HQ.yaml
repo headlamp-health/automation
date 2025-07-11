@@ -1,0 +1,131 @@
+appId: com.headlamp.uno
+---
+# health questionnaires 
+
+- tapOn: "Power"
+- scrollUntilVisible:
+    element:  
+      text: Health questionnaires
+    direction: DOWN
+- tapOn: "Health questionnaires" 
+
+- scrollUntilVisible:
+    element:
+      text: "Health questionnaires"
+    direction: DOWN
+    centerElement: true
+- runFlow:
+    when:
+      visible:
+         text: "BEGIN"
+         below:
+            text: "Health questionnaires"
+    commands:
+      - tapOn: 
+         text: "BEGIN"
+         below:
+           text: "Health questionnaires"
+- runFlow:
+    when:
+      visible:
+         text: "Take again"
+         below:
+            text: "Health questionnaires"
+    commands:
+      - tapOn:
+          text: TAKE AGAIN
+          below:
+           text: "Health questionnaires)"
+      - waitForAnimationToEnd
+- swipe:
+    direction: DOWN      
+- assertVisible : UCLA Loneliness Scale
+
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "never"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    text: "DONE"
+- assertVisible : assessment Complete
+- assertVisible : UCLA Loneliness Scale

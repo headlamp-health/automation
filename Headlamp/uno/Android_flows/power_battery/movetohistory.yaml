@@ -1,0 +1,109 @@
+appId: com.headlamp.uno.stage
+---
+
+- scrollUntilVisible:
+    element:
+      text: "Dr. J. Doe"
+      below :
+        text: "Primary care provider"
+    direction: UP
+    centerElement: true
+- tapOn: "Dr. J. Doe"
+
+# move to history 
+- tapOn:
+    id: "button-text"
+- assertVisible: "Month is required"
+- tapOn: "Month"
+- tapOn: "October"
+- tapOn:
+    id: "button-text"
+- assertVisible: "Year is required"
+- waitForAnimationToEnd
+- tapOn: "Year"
+- waitForAnimationToEnd
+- tapOn: "2024"
+- waitForAnimationToEnd
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+
+- waitForAnimationToEnd
+
+- assertNotVisible :
+    text: "Dr. J. Doe"
+    below:
+      text: "Primary care provider"
+- waitForAnimationToEnd
+
+- scrollUntilVisible:
+    element:
+      text: Medications
+    direction: DOWN
+    centerElement: false
+- waitForAnimationToEnd
+
+- assertVisible: 
+    text : "Dr. B. Brown"
+    above:
+      text: "Dr. G. Glover"
+- tapOn: "Dr. B. Brown"
+- waitForAnimationToEnd
+
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+- assertVisible: "Month is required"
+- tapOn: "Month"
+- tapOn: "july"
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+
+- assertVisible: "Year is required"
+- tapOn: "Year"
+- tapOn: "2023"
+- waitForAnimationToEnd
+
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+
+- assertNotVisible :
+    text: "Dr. B. Brown"
+    below:
+      text: "Mental health care providers"
+- scrollUntilVisible:
+    element:
+      text : Dr. G. Glover
+      below:
+        text : "Mental health care providers"
+    centerElement: true
+- tapOn: "Dr. G. Glover"
+- tapOn:
+    id: "button-text"
+- waitForAnimationToEnd
+
+- assertVisible: "Month is required"
+- tapOn: "Month"
+- tapOn: "june"
+- tapOn:
+    id: "button-text"
+- assertVisible: "Year is required"
+- tapOn: "Year"
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    element:
+      text : 2005
+      below:
+        text : 2006
+- tapOn: "2005"
+- tapOn:
+    id: "button"
+    retryTapIfNoChange: false
+- waitForAnimationToEnd
+- assertNotVisible :
+    text: "Dr. G. Glover"
+    below:
+      text: "Mental health care providers"

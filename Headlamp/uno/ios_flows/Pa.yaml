@@ -1,0 +1,486 @@
+appId: org.reactjs.native.example.Headlamp.Stage
+---
+# flow for Personality assessment covered 4 flows ,
+# accounting both first time and take again 
+
+# "Personality profile (DISC)" flow
+- tapOn:   Power Power
+# - scrollUntilVisible:
+#     element:  
+#       id : Personality assessments
+#     direction: DOWN
+# - tapOn:
+#     id: "Personality assessments"
+- scrollUntilVisible:
+    element:  
+      text : Personality assessments
+    direction: DOWN
+- tapOn:
+    text : "Personality assessments"
+
+- scrollUntilVisible:
+    element:
+      text: "Personality profile (DISC)"
+    direction: DOWN
+    centerElement: true
+- runFlow:
+    when:
+      visible:
+         text: "BEGIN 󰅂"
+         below:
+            text: "Personality profile (DISC)"
+    commands:
+      - tapOn: 
+         text: "BEGIN 󰅂"
+         below:
+           text: "Personality profile (DISC)"
+- runFlow:
+    when:
+      visible:
+         text: "TAKE AGAIN 󰅂"
+         below:
+            text: "Personality profile (DISC)"
+    commands:
+      - tapOn:
+          text: "TAKE AGAIN 󰅂"
+          below:
+           text: "Personality profile (DISC)"
+      - waitForAnimationToEnd
+ 
+  
+- waitForAnimationToEnd
+- swipe :
+   direction : DOWN
+
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Careful"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Correct"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Bold"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Doubting"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Daring"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Gentle"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Decisive"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Generous"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Modest"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Optimistic"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Humble"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Playful"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Charming"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Steady"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Determined"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Critical"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Lively"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Kind"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Popular"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Serious"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Loyal"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Courageous"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Pushy"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Tolerant"
+- waitForAnimationToEnd
+
+- tapOn:
+    id: "button"
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Update"
+    commands:
+      - tapOn:
+          text: "GOT IT"
+      - waitForAnimationToEnd
+           
+
+- assertVisible:
+    text: "My Button"
+    optional: true
+
+
+# locus of control flow 
+
+- tapOn:   Power Power
+- scrollUntilVisible:
+    element:  
+      text: Personality assessments
+    direction: DOWN
+- tapOn: "Personality assessments" 
+
+- scrollUntilVisible:
+    element:
+      text: "Locus of control"
+    direction: DOWN
+    centerElement : true 
+- runFlow:
+    when:
+      visible: "BEGIN 󰅂"
+    commands:
+      - tapOn: 
+          text: "BEGIN 󰅂"
+          below:
+           text: Locus of control
+- runFlow:
+    when:
+      visible: "TAKE AGAIN 󰅂"
+    commands:
+      - tapOn:
+          text: "TAKE AGAIN 󰅂"
+          below:
+           text: "Locus of control"
+
+- waitForAnimationToEnd
+- swipe:             
+    direction: DOWN
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 1
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 2
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-True"
+    index: 3
+- waitForAnimationToEnd
+
+- tapOn:
+    id: "button"
+- waitForAnimationToEnd
+
+# "Quality of life" flow 
+
+- tapOn:   Power Power
+- scrollUntilVisible:
+    element:  
+      text: Personality assessments
+    direction: DOWN
+- tapOn: "Personality assessments" 
+
+- scrollUntilVisible:
+    element:
+      text: "Quality of life"
+    direction: DOWN
+    centerElement : true
+- runFlow:
+    when:
+      visible: "BEGIN 󰅂"
+    commands:
+      - tapOn: 
+          text: "BEGIN 󰅂"
+          below:
+           text: "Quality of life"
+- runFlow:
+    when:
+      visible: "TAKE AGAIN 󰅂"
+    commands:
+      - tapOn:
+          text: "TAKE AGAIN 󰅂"
+          below:
+           text: "Quality of life"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+- tapOn:
+    id: "segmented-button-Delighted"
+- waitForAnimationToEnd
+
+
+- waitForAnimationToEnd
+- tapOn:
+    id: "button"
+- waitForAnimationToEnd
+
+# core values flow 
+
+# - tapOn: "Power"
+# - scrollUntilVisible:
+#     element:  
+#       text: Personality assessments
+#     direction: DOWN
+# - tapOn: "Personality assessments" 
+
+# - scrollUntilVisible:
+#     element:
+#       text: "Core values"
+#     direction: DOWN
+#     centerElement : true 
+# - waitForAnimationToEnd    
+# - runFlow:
+#     when:
+#       visible: "BEGIN 󰅂"
+#     commands:
+#       - tapOn: 
+#           text: "BEGIN 󰅂"
+#           below:
+#            text: "Core values"
+# - runFlow:
+#     when:
+#       visible: "TAKE AGAIN 󰅂"
+#     commands:
+#       - tapOn:
+#           text: "TAKE AGAIN 󰅂"
+#           below:
+#            text: "Core values"
+# - waitForAnimationToEnd
+# - runFlow:
+#     when:
+#       visible: "CONTINUE" 
+#     commands:
+#       - tapOn:
+#           text: "CONTINUE"
+# - waitForAnimationToEnd
+# - tapOn: family  
+# - tapOn: rest 
+# - tapOn: creativity 
+# - tapOn: punctuality 
+# - tapOn: Communication
+# - tapOn: Education 
+# - scrollUntilVisible:
+#    element:
+#     text: competition
+#    direction: DOWN
+#    centerElement: true
+# - tapOn: Achievement 
+# - tapOn: Professionalism 
+# - tapOn: competition
+# - tapOn: Frugality 
+# - tapOn: Self-Confidence
+# - tapOn: Stillness
+# - tapOn: Structure 
+# - tapOn: Objectivity 
+# - tapOn: Decision-Making 
+# - scrollUntilVisible:
+#    element:
+#     text: Bravery
+#    direction: DOWN
+#    centerElement: true
+# - tapOn: bravery 
+# - tapOn: Patience 
+# - tapOn: COngruence 
+# - tapOn: Composure 
+# - tapOn: Tradition 
+# - tapOn: Wealth 
+# - tapOn: Trusting Relationships
+# - scrollUntilVisible:
+#    element:
+#     text: Adventure
+#    direction: DOWN
+#    centerElement: true
+# - tapOn: Adventure 
+# - tapOn: Service 
+# - tapOn: Playfulness
+# - tapOn: Assertion
+# - tapOn : Responsibility 
+# - tapOn : Novelty 
+# - tapOn : Perseverance
+# - scrollUntilVisible:
+#    element:
+#     text: Consistency
+#    direction: DOWN
+#    centerElement: true
+# - tapOn : Consistency
+# - scrollUntilVisible:
+#    element:
+#      id: "button"
+#    direction: DOWN
+#    centerElement: false
+# - tapOn: "core-assessment-continue"
+# - waitForAnimationToEnd
+# - tapOn: family  
+# - tapOn: rest 
+# - tapOn: creativity 
+# - tapOn: punctuality 
+# - tapOn: Communication
+# - tapOn: Education 
+# - scrollUntilVisible:
+#    element:
+#     text: competition
+#    direction: DOWN
+#    centerElement: true
+# - tapOn: Achievement 
+# - tapOn: Professionalism 
+# - tapOn: competition
+# - tapOn: Frugality 
+# - scrollUntilVisible:
+#    element:
+#      id: "button"
+#    direction: DOWN
+#    centerElement: false
+# - tapOn: "core-assessment-continue"
+# - waitForAnimationToEnd
+# - tapOn: family  
+# - tapOn: rest 
+# - tapOn: creativity 
+# - tapOn: punctuality 
+# - tapOn: Communication
+# - tapOn: COMPLETE
+# - waitForAnimationToEnd
+# - assertVisible : assessment Complete 
+

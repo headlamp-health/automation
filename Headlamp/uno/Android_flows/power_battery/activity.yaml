@@ -1,0 +1,115 @@
+appId: com.headlamp.uno
+---
+# activty Teacking , adding custom and Standard activity and then deleting them
+# edit Exercise
+
+
+- tapOn: "Power"
+- scrollUntilVisible:
+    element:  
+      text: Activity Tracking
+    direction: DOWN
+- tapOn: "Activity Tracking"
+
+# adding a activity 
+# Standard
+- runFlow:
+    when:
+      notVisible:
+        text: Diet
+    commands:      
+      - tapOn: "add"
+      - tapOn: Standard
+      - tapOn: "Diet"
+      # add activity button       
+      - tapOn:
+          id: "button"
+      - scrollUntilVisible:
+          element:
+            text: Diet
+          direction: DOWN
+          centerElement: true    
+      - assertVisible:
+          text : Diet 
+          above : 2500 calories per day
+- waitForAnimationToEnd
+
+
+# custom 
+- tapOn: "add"
+- tapOn: "Custom"
+- tapOn:
+    id: "text-input-outlined-label-inactive"
+- inputText: cycling
+- tapOn:
+    id: "custom-activity-Track as"
+- tapOn: "yes/no"
+# add activity button    
+- tapOn:
+    id: "button"
+
+- waitForAnimationToEnd
+
+# edit activity 
+- swipe :
+   direction : DOWN
+- scrollUntilVisible:
+    element:
+      text: Exercise
+    direction: DOWN
+    centerElement: false
+
+- tapOn:
+    text: edit
+    rightOf:
+      text: Exercise
+    below:
+      text: Exercise
+- tapOn:
+    id: "custom-activity-My typical"
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+- eraseText
+- inputRandomNumber:
+    length: 2 
+- back
+- waitForAnimationToEnd
+
+# delete activity
+- scrollUntilVisible:
+    element:
+      text: Diet
+    direction: DOWN
+    centerElement: false
+- waitForAnimationToEnd
+- tapOn:
+    text: edit
+    rightOf:
+      text: Diet 
+    below : 
+      text : Diet   
+- waitForAnimationToEnd
+# remove button     
+- tapOn:
+    id: "remove-activity-button"   
+- tapOn: "REMOVE"
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    element:
+      text: cycling
+    direction: DOWN
+    centerElement: false
+- tapOn:
+    text: edit
+    rightOf:
+      text: cycling 
+    below:
+      text : cycling   
+# remove button     
+- tapOn:
+    id: "remove-activity-button"  
+- tapOn: "REMOVE"
+- assertNotVisible: diet 
+- assertNotVisible: cycling 
+- back

@@ -1,0 +1,262 @@
+appId: com.headlamp.uno.stage
+---
+- startRecording: /Users/kartikgupta/Desktop/Automation_framework/Android_flows/power_battery/r.mp4
+- tapOn: "Power"
+- scrollUntilVisible:
+    element:  
+      text: Mood check-in
+    direction: DOWN
+
+- tapOn: Mood check-in
+-  runFlow:
+        when:
+            visible:
+                text: "Got IT"
+        commands:
+            - tapOn: 
+               text:  "Got IT"   
+
+- tapOn:
+    id: slider-track-mark
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    id: slider-track-mark
+    index: 7
+- waitForAnimationToEnd
+- tapOn:
+    id: "submit-button"
+
+- waitForAnimationToEnd
+- tapOn:
+    id: "submit-button"
+- tapOn:
+    id: "Scared-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "Worried-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "Anxious-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "submit-button"
+
+- tapOn:
+    id: "Education-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "Family-chip"
+- tapOn:
+    id: "submit-button"
+
+- tapOn:
+    id: "Financial Struggles-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id:  "Performance Pressures-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "submit-button"
+
+- waitForAnimationToEnd
+- tapOn:
+    id: "More"
+    index: 0
+- tapOn:
+    id: My typical
+    index: 0 
+- waitForAnimationToEnd
+
+- tapOn:
+    id:  Less
+    index: 1
+- waitForAnimationToEnd
+
+- tapOn:
+    id:  More
+    index: 2
+- waitForAnimationToEnd
+- tapOn: "CONTINUE"
+- waitForAnimationToEnd
+# if mood logging is done
+
+
+
+- runFlow:
+    when:
+      visible:
+         text: "Great job logging again today!"
+    commands:
+      - assertVisible: "While personalized hypotheses and suggestions are currently shared just once per day, each mood log helps refine your profile for even more tailored insights in the future."
+      - tapOn: 
+          text : "VIEW PREVIOUS SUGGESTIONS"
+          retryTapIfNoChange: false
+      - waitForAnimationToEnd
+      -  runFlow:
+          when:
+            visible:
+             text: "Got IT"
+          commands:
+            - tapOn: 
+               text:  "Got IT"     
+      - waitForAnimationToEnd
+
+      - assertVisible : insights       
+      - assertVisible: "Personalized content to help you build awareness and understanding around how you feel. Continue logging your mood for more tailored suggestions."  
+- assertNoDefectsWithAI
+
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible:
+         text: "Reminders"
+    commands:
+        - scroll
+        # skip
+        - tapOn:
+            id: "button"
+            index: 1
+        - waitForAnimationToEnd
+
+        - assertVisible : Generating personal insights based on your power level
+        - waitForAnimationToEnd
+            # continue button
+        - assertNoDefectsWithAI
+        - tapOn:
+            id: "button"
+        - assertNoDefectsWithAI
+        - assertVisible: Hypothesis
+        - assertVisible: "Why you might be feeling "
+        - assertNoDefectsWithAI
+
+        - tapOn:
+            id: "button"
+
+        - assertVisible: Suggestions
+        - assertVisible: "Content"
+        - assertNoDefectsWithAI
+        - tapOn:
+            id: "button"
+- runFlow:
+    when:
+      visible:
+         text: "Generating personal insights based on your power level"
+    commands:
+
+        - assertVisible : Generating personal insights based on your power level
+        - waitForAnimationToEnd
+            # continue button
+        - assertNoDefectsWithAI
+        - tapOn:
+            id: "button"
+        - assertNoDefectsWithAI
+
+        - assertVisible: Hypothesis
+        - assertNoDefectsWithAI
+
+        - tapOn:
+            id: "button"
+
+        - assertVisible: Suggestions
+        - assertVisible: "Content"
+        - assertNoDefectsWithAI
+        - tapOn:
+            id: "button"
+- tapOn: "Power"
+- scrollUntilVisible:
+    element:  
+      text: Mood check-in
+    direction: DOWN
+
+- tapOn: Mood check-in
+- tapOn:
+    id: slider-track-mark
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    id: slider-track-mark
+    index: 7
+- waitForAnimationToEnd
+- tapOn:
+    id: "submit-button"
+
+- waitForAnimationToEnd
+- tapOn:
+    id: "submit-button"
+- tapOn:
+    id: "Scared-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "Worried-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "Anxious-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "submit-button"
+
+- tapOn:
+    id: "Education-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "Family-chip"
+- tapOn:
+    id: "submit-button"
+
+- tapOn:
+    id: "Financial Struggles-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id:  "Performance Pressures-chip"
+- waitForAnimationToEnd
+- tapOn:
+    id: "submit-button"
+
+- waitForAnimationToEnd
+- tapOn:
+    id: "More"
+    index: 0
+- tapOn:
+    id: My typical
+    index: 0 
+- waitForAnimationToEnd
+
+- tapOn:
+    id:  Less
+    index: 1
+- waitForAnimationToEnd
+
+- tapOn:
+    id:  More
+    index: 2
+- waitForAnimationToEnd
+- tapOn: "CONTINUE"
+- waitForAnimationToEnd
+# if mood logging is done
+
+
+
+- runFlow:
+    when:
+      visible:
+         text: "Great job logging again today!"
+    commands:
+      - assertVisible: "While personalized hypotheses and suggestions are currently shared just once per day, each mood log helps refine your profile for even more tailored insights in the future."
+      - tapOn: 
+          text : "VIEW PREVIOUS SUGGESTIONS"
+          retryTapIfNoChange: false
+      - waitForAnimationToEnd
+      -  runFlow:
+          when:
+            visible:
+             text: "Got IT"
+          commands:
+            - tapOn: 
+               text:  "Got IT"     
+      - waitForAnimationToEnd
+
+      - assertVisible : insights       
+      - assertVisible: "Personalized content to help you build awareness and understanding around how you feel. Continue logging your mood for more tailored suggestions."  
+- assertNoDefectsWithAI
+- stopRecording

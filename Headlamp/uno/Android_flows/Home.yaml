@@ -1,0 +1,54 @@
+appId: com.headlamp.uno.stage
+---
+- launchApp:
+   appId: com.headlamp.uno.stage
+- tapOn: "Home"   
+- assertNoDefectsWithAI
+- assertVisible: "Batteries to\ncharge"
+- assertVisible: "Suggestions\nto view"
+- assertVisible: "Latest hypothesis"
+- tapOn: "󰂜"
+- tapOn: "Logging reminders"
+- tapOn:
+    point: "50%,55%"
+
+- scrollUntilVisible:
+    element:
+      text: 04:45 PM
+    direction: DOWN
+- tapOn: 04:45 PM
+- tapOn: SAVE
+- back
+- tapOn: "Batteries to\ncharge"
+- assertNoDefectsWithAI
+- assertVisible: "Charge all for bonus points"
+- assertVisible: "Power level"
+- assertVisible:
+    text: "Cognitive assessment (Stroop)"
+- assertVisible:
+    text: "Activity tracking"
+- tapOn: "Home"   
+- tapOn: "Suggestions\nto view"
+-  runFlow:
+        when:
+            visible:
+                text: "Got IT"
+        commands:
+            - tapOn: 
+               text:  "Got IT"   
+- assertNoDefectsWithAI
+- assertVisible:
+    text: "SUGGESTIONS"
+- assertVisible:
+    text: "Insights"
+    index: 0
+- assertVisible: "Personalized content to help you build awareness and understanding around how you feel. Continue logging your mood for more tailored suggestions."
+- tapOn: "Home"
+- tapOn: "Latest hypothesis"
+- assertVisible: "Latest hypothesis"
+- assertNoDefectsWithAI
+- back
+
+
+
+

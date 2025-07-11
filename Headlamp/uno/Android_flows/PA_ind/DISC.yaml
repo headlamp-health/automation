@@ -1,0 +1,114 @@
+appId: com.headlamp.uno
+---
+
+- tapOn: "Power"
+- scrollUntilVisible:
+    element:  
+      text: Personality assessments
+    direction: DOWN
+- tapOn: "Personality assessments" 
+
+- scrollUntilVisible:
+    element:
+      text: "Personality profile (DISC)"
+    direction: DOWN
+    centerElement: true
+- runFlow:
+    when:
+      visible:
+         text: "BEGIN"
+         below:
+            text: "Personality profile (DISC)"
+    commands:
+      - tapOn: 
+         text: "BEGIN"
+         below:
+           text: "Personality profile (DISC)"
+- runFlow:
+    when:
+      visible:
+         text: "Take again"
+         below:
+            text: "Personality profile (DISC)"
+    commands:
+      - tapOn:
+          text: TAKE AGAIN
+          below:
+           text: "Personality profile (DISC)"
+      - waitForAnimationToEnd
+ 
+  
+- waitForAnimationToEnd
+- swipe :
+   direction : DOWN
+
+- waitForAnimationToEnd
+- tapOn: "Careful"
+- waitForAnimationToEnd
+- tapOn: "Correct"
+- waitForAnimationToEnd
+- tapOn: "bold"
+- waitForAnimationToEnd
+- tapOn: "Doubting"
+- waitForAnimationToEnd
+- tapOn: "Daring"
+- waitForAnimationToEnd
+- tapOn: "Gentle"
+- waitForAnimationToEnd
+- tapOn: "Decisive"
+- waitForAnimationToEnd
+- tapOn: "Generous"
+- waitForAnimationToEnd
+- tapOn: "Modest"
+- waitForAnimationToEnd
+- tapOn: "Optimistic"
+- waitForAnimationToEnd
+- tapOn: "Humble"
+- waitForAnimationToEnd
+- tapOn: "Playful"
+- waitForAnimationToEnd
+- tapOn: "Charming"
+- waitForAnimationToEnd
+- tapOn: "Steady"
+- waitForAnimationToEnd
+- tapOn: "Determined"
+- waitForAnimationToEnd
+- tapOn: "Critical"
+- waitForAnimationToEnd
+- tapOn: "lively"
+- waitForAnimationToEnd
+- tapOn: "kind"
+- waitForAnimationToEnd
+- tapOn: "Popular"
+- waitForAnimationToEnd
+
+- tapOn: "Serious"
+- waitForAnimationToEnd
+
+- tapOn: "Loyal"
+- waitForAnimationToEnd
+
+- tapOn: "Courageous"
+- waitForAnimationToEnd
+
+- tapOn: "pushy"
+- waitForAnimationToEnd
+
+- tapOn: "Tolerant"
+- waitForAnimationToEnd
+
+- tapOn: "COMPLETE"
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Update"
+    commands:
+      - tapOn:
+          text: "GOT IT"
+      - waitForAnimationToEnd
+           
+
+- assertVisible:
+    text: "My Button"
+    optional: true
+

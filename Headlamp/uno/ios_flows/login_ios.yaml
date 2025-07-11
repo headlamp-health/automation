@@ -1,0 +1,106 @@
+appId: org.reactjs.native.example.Headlamp.Stage
+---
+
+- launchApp:
+   appId: org.reactjs.native.example.Headlamp.Stage
+   clearState: true
+   clearKeychain: true
+   stopApp: false
+   permissions:
+    all: allow
+- waitForAnimationToEnd
+   
+- assertNoDefectsWithAI
+- tapOn: already-have-account
+
+
+- tapOn: "email"
+- inputText: "maestro.test4@yopmail.com"
+
+- tapOn: "password"
+- inputText: "Headlamp@123"
+- waitForAnimationToEnd
+- tapOn: "Sign In"
+- hideKeyboard
+- waitForAnimationToEnd
+- tapOn: "sign-in-button"
+- waitForAnimationToEnd
+- assertNoDefectsWithAI
+
+- runFlow:
+   when:
+    visible: Records ready notification
+   commands:
+    - tapOn: CONTINUE
+    - waitForAnimationToEnd:
+        timeout: 5000
+    - assertVisible: Congratulations
+    - tapOn: CONTINUE    
+- runFlow:
+    when:
+      visible: "Higher power level = better insights"
+    commands:
+      - tapOn:
+         point: 50%,47%
+      - waitForAnimationToEnd:
+          timeout: 5000 
+- runFlow:
+   when:
+      visible: SUGGEST ACTIVITIES FOR ME 
+   commands:
+      - tapOn: SUGGEST ACTIVITIES FOR ME
+      - waitForAnimationToEnd:
+         timeout: 9000 
+      - tapOn: ACCEPT ACTIVITIES
+      - tapOn: CONTINUE
+      - tapOn: CONTINUE
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+- runFlow:
+    when:
+      visible: "Tap “Turn On All” on the next screen
+
+        for the best experience"
+    commands : 
+        - tapOn:
+            id: "button"   
+        - tapOn: Allow “Headlamp Stage” to read
+        - tapOn:
+            point: 96% , 10%       
+- assertNoDefectsWithAI
+- runFlow:
+   when:
+      visible: skip for now
+   commands:
+      - tapOn:
+          text: skip for now
+      - waitForAnimationToEnd:
+          timeout: 9000    
+- runFlow:
+   when:
+      visible: your insights data has been converted and simplified to match 
+   commands:
+      - assertVisible : GOT IT
+      - tapOn:
+          text: GOT IT
+      - waitForAnimationToEnd:
+          timeout: 9000  
+- runFlow:
+   when:
+      visible: we've updated our Hypothesis to be even more personalized
+   commands:
+      - assertVisible : GOT IT
+      - tapOn:
+          text: GOT IT
+      - waitForAnimationToEnd:
+          timeout: 9000                             
+   

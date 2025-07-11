@@ -1,0 +1,79 @@
+appId: com.headlamp.uno.stage
+---
+- killApp
+- launchApp:
+   appId: com.headlamp.uno.stage
+- tapOn: "Insights"
+- swipe:
+    from:
+      text: activities
+    direction: right
+- tapOn:
+    text: "Moods"    
+- tapOn:
+    text: "ASSOCIATIONS"
+- assertVisible: "Continue logging your mood to see this chart"
+- assertVisible: "Moods and activities"
+- waitForAnimationToEnd
+- assertNoDefectsWithAI
+- tapOn:
+    text: "Pleasantness"
+    index: 0
+- assertVisible: "Select mood"
+- tapOn: "Energy"
+- assertNoDefectsWithAI
+- tapOn:
+    text: "Caffeine"
+    index: 0    
+- tapOn: "Alcohol"
+- assertNoDefectsWithAI
+- assertVisible:
+    text: "Energy"
+    index: 1
+    leftOf:
+      text: "Alcohol"
+      index: 1
+- scrollUntilVisible:
+    element:
+      text: "Select comparison"
+    direction: DOWN
+    centerElement: true      
+- assertNoDefectsWithAI
+- tapOn: "Select comparison"
+- assertVisible: "Caffeine"
+- assertVisible: "Exercise"
+- tapOn: "Alcohol"
+- assertNoDefectsWithAI
+- tapOn: Weeks
+- waitForAnimationToEnd   
+- scrollUntilVisible:
+    element: "Headmap" # Element to find
+    direction: UP #
+- waitForAnimationToEnd   
+
+- assertVisible: "last 30 days"
+- assertNoDefectsWithAI
+- tapOn: "Energy"
+- tapOn: "Pleasantness"
+- assertVisible:
+    text: "Pleasantness (avg)"
+    leftOf:
+      text: "Alcohol (mode)"
+- scrollUntilVisible:
+    element:
+      text: "Cognitive assessment (Stroop)"
+    direction: DOWN
+    centerElement: true   
+- assertNoDefectsWithAI
+- tapOn: "Alcohol"
+- assertNoDefectsWithAI
+- tapOn: "Energy"
+- assertVisible:
+    text: "Stroop (mode)"
+    leftOf:
+      text: "Energy (avg)"
+
+
+
+
+
