@@ -1,61 +1,75 @@
-name: Upload BrowserStack Test Suite
+name: Upload  Test Suite
 
 on:
   workflow_dispatch:
 
 jobs:
-  upload_browserstack_testsuite:
+  upload-testsuite:
     runs-on: ubuntu-latest
 
     env:
-      BROWSERSTACK_USERNAME: kartik_c4hHwJ
-      BROWSERSTACK_ACCESS_KEY: vY6uRQ4t2gEHXPmE9UJL
+      BROWSERSTACK_USERNAME: kartikgupta_bpv503
+      BROWSERSTACK_ACCESS_KEY: qQgg7fV2kkwKs3JJqdbS
 
     steps:
-      - name: Checkout Current Repository
+      - name: Checkout Automation Repository
         uses: actions/checkout@v4
 
-      - name: Zip the browserstack Folder
+      - name: Debug Current Directory
         run: |
-          cd automation/Headlamp
-          echo "Zipping automation/Headlamp/browserstack..."
-          zip -r browserstack.zip browserstack
-          mv browserstack.zip $GITHUB_WORKSPACE/
-          echo "browserstack.zip created in $GITHUB_WORKSPACE"
+          echo "PWD: $(pwd)"
+          echo "Root Contents:"
+          ls -la
+          echo "automation Folder Contents:"
+          ls -la automation
 
+      - name: Zip the BrowserStack Folder
+        run: |
+          echo "Zipping automation/Headlamp/browserstack..."
+          zip -r browserstack.zip automation/Headlamp/browserstack
+          echo "Zip file created:"
+          ls -lh browserstack.zip
 
       - name: Upload Test Suite to BrowserStack
-        id: upload_suite
+        id: upload_testsuite
         run: |
-          echo "Uploading test suite to BrowserStack..."
-          response=$(curl -u "${BROWSERSTACK_USERNAME}:${BROWSERSTACK_ACCESS_KEY}" \
+          echo "Uploading browserstack.zip to BrowserStack..."
+          RESPONSE=$(curl -u "${BROWSERSTACK_USERNAME}:${BROWSERSTACK_ACCESS_KEY}" \
             -X POST "https://api-cloud.browserstack.com/app-automate/maestro/v2/test-suite" \
-            -F "file=@${GITHUB_WORKSPACE}/browserstack.zip" \
-            -F "custom_id=Automation_TestSuite_${{ github.run_id }}" \
-            -s -w "\n%{http_code}")
+            -F "file=@browserstack.zip")
+          
+          echo "Response from BrowserStack:"
+          echo "$RESPONSE"
+          
+          TEST_SUITE_URL=$(echo "$RESPONSE" | jq -r '.test_suite_url // empty')
 
-          http_code=$(echo "$response" | tail -n1)
-          body=$(echo "$response" | head -n -1)
-
-          echo "Response HTTP code: $http_code"
-          echo "Response body: $body"
-
-          if [[ "$http_code" == "200" ]]; then
-            test_suite_url=$(echo "$body" | jq -r '.test_suite_url // empty')
-            echo "Upload successful. Test suite URL: $test_suite_url"
-            echo "UPLOAD_SUCCESS=true" >> $GITHUB_ENV
-            echo "TEST_SUITE_URL=$test_suite_url" >> $GITHUB_ENV
+          if [ -z "$TEST_SUITE_URL" ]; then
+            echo "Upload failed or test_suite_url not found."
+            echo "TEST_UPLOAD_STATUS=fail" >> $GITHUB_ENV
           else
-            echo "Upload failed."
-            echo "UPLOAD_SUCCESS=false" >> $GITHUB_ENV
+            echo "Test Suite URL: $TEST_SUITE_URL"
+            echo "TEST_SUITE_URL=$TEST_SUITE_URL" >> $GITHUB_ENV
+            echo "TEST_UPLOAD_STATUS=success" >> $GITHUB_ENV
           fi
 
-      - name: Send Slack Notification
+      - name: Send Slack Notification - Success
+        if: env.TEST_UPLOAD_STATUS == 'success'
         uses: slackapi/slack-github-action@v1.25.0
         with:
           payload: |
             {
-              "text": "${{ env.UPLOAD_SUCCESS == 'true' && '✅ BrowserStack Test Suite uploaded successfully!' || '❌ BrowserStack Test Suite upload failed.' }}\nTest Suite URL: ${{ env.TEST_SUITE_URL != '' && env.TEST_SUITE_URL || 'N/A' }}\nView Workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+              "text": "✅ BrowserStack Test Suite uploaded successfully!\nTest Suite URL: ${{ env.TEST_SUITE_URL }}\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.TEST_PIPELINE_SLACK_WEBHOOK_URL }}
+
+      - name: Send Slack Notification - Failure
+        if: env.TEST_UPLOAD_STATUS != 'success'
+        uses: slackapi/slack-github-action@v1.25.0
+        with:
+          payload: |
+            {
+              "text": "❌ BrowserStack Test Suite upload failed!\nRun: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.TEST_PIPELINE_SLACK_WEBHOOK_URL }}
