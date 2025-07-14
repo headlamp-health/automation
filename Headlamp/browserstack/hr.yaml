@@ -248,7 +248,7 @@ tags:
 - inputText: 2 
 - tapOn: "Month"
 - waitForAnimationToEnd
-- tapOn: "October"
+- tapOn: "January"
 - waitForAnimationToEnd
 - tapOn: "Year"
 - waitForAnimationToEnd
