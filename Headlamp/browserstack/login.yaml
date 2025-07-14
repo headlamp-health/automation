@@ -2,14 +2,14 @@ appId: com.headlamp.uno.stage
 tags:
   - login
 --- 
-- launchApp:
-   appId: com.headlamp.uno.stage
-   clearState: true
-   clearKeychain: true
-   stopApp: false
-   permissions:
-    all: allow
-- waitForAnimationToEnd
+# - launchApp:
+#    appId: com.headlamp.uno.stage
+#    clearState: true
+#    clearKeychain: true
+#    stopApp: false
+#    permissions:
+#     all: allow
+# - waitForAnimationToEnd
    
 - assertNoDefectsWithAI
 - tapOn: already-have-account
