@@ -218,6 +218,7 @@ tags:
         - assertNoDefectsWithAI
         - tapOn:
             id: "button"
+        - waitForAnimationToEnd    
         - assertNoDefectsWithAI
         - assertVisible: Hypothesis
         - assertVisible: "Why you might be feeling "

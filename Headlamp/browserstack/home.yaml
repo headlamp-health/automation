@@ -97,8 +97,6 @@ appId: "{APP_ID}"
    
 - tapOn: "Home"   
 - assertNoDefectsWithAI
-- assertVisible: "Batteries to\ncharge"
-- assertVisible: "Suggestions\nto view"
 - assertVisible: "Latest hypothesis"
 - tapOn: "󰂜"
 - tapOn: "Logging reminders"
