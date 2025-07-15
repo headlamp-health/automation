@@ -1,0 +1,159 @@
+appId: com.headlamp.uno.stage
+tags:
+  - login
+--- 
+- launchApp:
+   appId: com.headlamp.uno.stage
+   clearState: true
+   clearKeychain: true
+   stopApp: false
+   permissions:
+    all: allow
+- waitForAnimationToEnd
+   
+- assertNoDefectsWithAI
+- tapOn: already-have-account
+
+
+- tapOn: "email"
+- inputText: "testrigor.1@yopmail.com"
+- tapOn: "password"
+- inputText: "Headlamp@123"
+- tapOn:
+    text: "Sign In"
+    index: 0
+- tapOn:
+    id: "sign-in-button-testid"
+- assertNoDefectsWithAI
+
+- runFlow:
+   when:
+    visible: Records ready notification
+   commands:
+    - tapOn: CONTINUE
+    - waitForAnimationToEnd:
+        timeout: 5000
+    - assertVisible: Congratulations
+    - tapOn: CONTINUE    
+- runFlow:
+    when:
+      visible: "Higher power level = better insights"
+    commands:
+      - tapOn:
+         point: 50%,47%
+      - waitForAnimationToEnd:
+          timeout: 5000 
+- runFlow:
+   when:
+      visible: SUGGEST ACTIVITIES FOR ME 
+   commands:
+      - tapOn: SUGGEST ACTIVITIES FOR ME
+      - waitForAnimationToEnd:
+         timeout: 9000 
+      - tapOn: ACCEPT ACTIVITIES
+      - tapOn: CONTINUE
+      - tapOn: CONTINUE
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+
+- tapOn:
+    id: button
+- assertNoDefectsWithAI
+- runFlow:
+   when:
+      visible: skip for now
+   commands:
+      - tapOn:
+          text: skip for now
+      - waitForAnimationToEnd:
+          timeout: 9000    
+- tapOn: "Insights"
+- runFlow:
+   when:
+      visible: GOT IT
+   commands:
+      - assertVisible : GOT IT
+      - tapOn:
+          text: GOT IT
+      - waitForAnimationToEnd:
+          timeout: 9000  
+ 
+- swipe:
+    from:
+      text: activities
+    direction: right
+- tapOn:
+    text: "Moods"    
+- tapOn:
+    text: "ASSOCIATIONS"
+- assertVisible: "Continue logging your mood to see this chart"
+- assertVisible: "Moods and activities"
+- waitForAnimationToEnd
+- assertNoDefectsWithAI
+- tapOn:
+    text: "Pleasantness"
+    index: 0
+- assertVisible: "Select mood"
+- tapOn: "Energy"
+- assertNoDefectsWithAI
+- tapOn:
+    text: "Caffeine"
+    index: 0    
+- tapOn: "Alcohol"
+- assertNoDefectsWithAI
+- assertVisible:
+    text: "Energy"
+    index: 1
+    leftOf:
+      text: "Alcohol"
+      index: 1
+- scrollUntilVisible:
+    element:
+      text: "Select comparison"
+    direction: DOWN
+    centerElement: true      
+- assertNoDefectsWithAI
+- tapOn: "Select comparison"
+- assertVisible: "Caffeine"
+- assertVisible: "Exercise"
+- tapOn: "Alcohol"
+- assertNoDefectsWithAI
+- tapOn: Weeks
+- waitForAnimationToEnd   
+- scrollUntilVisible:
+    element: "Headmap" # Element to find
+    direction: UP #
+- waitForAnimationToEnd   
+
+- assertVisible: "last 30 days"
+- assertNoDefectsWithAI
+- tapOn: "Energy"
+- tapOn: "Pleasantness"
+- assertVisible:
+    text: "Pleasantness (avg)"
+    leftOf:
+      text: "Alcohol (mode)"
+- scrollUntilVisible:
+    element:
+      text: "Cognitive assessment (Stroop)"
+    direction: DOWN
+    centerElement: true   
+- assertNoDefectsWithAI
+- tapOn: "Alcohol"
+- assertNoDefectsWithAI
+- tapOn: "Energy"
+- assertVisible:
+    text: "Stroop (mode)"
+    leftOf:
+      text: "Energy (avg)"
+
+
+
+
+
