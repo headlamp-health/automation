@@ -1,14 +1,16 @@
-appId: com.headlamp.uno.stage
+appId: "{APP_ID}"
+
 
 --- 
 - launchApp:
-   appId: com.headlamp.uno.stage
+   appId: "{APP_ID}"
    clearState: true
    clearKeychain: true
    stopApp: false
    permissions:
     all: allow
 - waitForAnimationToEnd
+
    
 - assertNoDefectsWithAI
 - tapOn: already-have-account
