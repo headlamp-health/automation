@@ -276,113 +276,45 @@ appId: "{APP_ID}"
 
 - scrollUntilVisible:
     element:
-      text: Add Symptoms
-    direction: DOWN
-    centerElement: true          
-- assertVisible: "Symptoms"
-- tapOn: "Add Symptoms"
-- assertNoDefectsWithAI
-- assertVisible: "Mood / emotions"
-- tapOn: "Low or depressed mood"
-- assertVisible: "Any unselected symptoms will appear in your Symptoms History."
-- assertNoDefectsWithAI
+      text: "VIEW ALL"
+      below:
+        text: "Side effects and symptoms"
+- tapOn: "VIEW ALL"
+- assertVisible: "Anything new with your symptoms or side effects?"
 - tapOn:
-    id: "checked-fd3a411b-a057-4370-aa50-5faf74b72017"
+    id: "Abdominal pain-chip"
 - tapOn:
-    id: "checked-484b9806-9cfb-49e2-9f75-7db5c70610d9"
-- scrollUntilVisible:
-    element:
-      text: SAVE
-    direction: DOWN
-    centerElement: false
-- tapOn: 
-    text: SAVE
-    retryTapIfNoChange: false
-
-- waitForAnimationToEnd
-- assertVisible: 
-    text : "2"
-    rightOf :
-      text: "Low or depressed mood"
-- assertVisible:  "Energy / focus"
-- waitForAnimationToEnd
-- tapOn: "More energy or self-confidence than normal"
-- assertNoDefectsWithAI
+    id: "Joint pain-chip"
 - tapOn:
-    id: "checked-274318d4-71f8-4709-9274-9285ef6795b6"
-- waitForAnimationToEnd
+    id: "Fever-chip"
 - tapOn:
-    id: "checked-5b91f965-09b7-4765-b0e4-47d3adc68675"
-- scrollUntilVisible:
-    element:
-      text: SAVE
-    direction: DOWN
-    centerElement: false
-- waitForAnimationToEnd
-
-- tapOn: 
-    text: SAVE
-    retryTapIfNoChange: false
-- waitForAnimationToEnd
-
-- assertVisible: 
-    text : "2"
-    rightOf :
-      text: "More energy or self-confidence than normal" 
-- waitForAnimationToEnd
-- scrollUntilVisible:
-    element:
-      text: Life events
-    direction: DOWN
-    centerElement: true
-- waitForAnimationToEnd
-
-- assertVisible: 
-    text : "Food or eating related issues"
-    below :
-     text : impulse related
-- tapOn : "Food or eating related issues"
-- waitForAnimationToEnd
+    id: "text-input-outlined"
+- inputText: "sleep"
+- pressKey: "enter"
+- assertVisible:
+    id: "Increased sleep-chip"
+- assertVisible:
+    id: "Less sleep-chip"
 - tapOn:
-    id: "checked-33b45412-e5ea-4c7c-be03-212c93997935"
+    id: "Increased sleep-chip"
 - tapOn:
     id: "button"
-- waitForAnimationToEnd
-- assertVisible: 
-    text : "1"
-    rightOf :
-      text: "Food or eating related issues"    
-
-
-- scrollUntilVisible:
-    element:
-      text: Other 
-    direction: DOWN
-    centerElement: true
-- assertVisible: 
-    text : "Trauma related symptoms"
-    below :
-     text : "Bizarre or unusual experiences"
-- tapOn: "Trauma related symptoms"
 - tapOn:
-    id: "checked-31cc9fd8-e755-42d6-9eda-e4a9c605c201"
-- waitForAnimationToEnd
+    id: "slider-track-mark"
+    index: 3
 - tapOn:
-    id: "checked-c0f5c937-5eef-4494-8981-b6d1f6fb37b0"
-- waitForAnimationToEnd
-- tapOn: SAVE
-- waitForAnimationToEnd
-
-- scrollUntilVisible:
-    element:
-      text: DONE 
-    direction: DOWN
-    centerElement: False
-- waitForAnimationToEnd
-# done button
+    id: "slider-track-mark"
+    index: 8
+- tapOn:
+    id: "slider-track-mark"
+    index: 15
+- tapOn:
+    id: "slider-track-mark"
+    index: 22
 - tapOn:
     id: "button"
-
+- assertVisible: "Abdominal pain"
+- assertVisible: "Fever"
 # move to history flow 
 
 - scrollUntilVisible:
@@ -541,100 +473,23 @@ appId: "{APP_ID}"
 # remove symptoms
 - scrollUntilVisible:
     element:
-      text: ADD/REMOVE SYMPTOMS
-    direction: DOWN
-    centerElement: false          
-- tapOn: "ADD/REMOVE SYMPTOMS"
-- assertNoDefectsWithAI
-- assertVisible: "Mood / emotions"
-- tapOn: "Low or depressed mood"
-- assertVisible: "Any unselected symptoms will appear in your Symptoms History."
-- assertNoDefectsWithAI
+      text: "VIEW ALL"
+      below:
+        text: "Side effects and symptoms"
+- tapOn: "VIEW ALL"
 - tapOn:
-    id: "checked-fd3a411b-a057-4370-aa50-5faf74b72017"
+    id: "Joint pain-chip"
 - tapOn:
-    id: "checked-484b9806-9cfb-49e2-9f75-7db5c70610d9"
-- scrollUntilVisible:
-    element:
-      text: SAVE
-    direction: DOWN
-    centerElement: false
-- tapOn: 
-    text: SAVE
-    retryTapIfNoChange: false
-
-- waitForAnimationToEnd
-
-- assertVisible:  "Energy / focus"
-- waitForAnimationToEnd
-- tapOn: "More energy or self-confidence than normal"
-- assertNoDefectsWithAI
+    id: "Fever-chip"
 - tapOn:
-    id: "checked-274318d4-71f8-4709-9274-9285ef6795b6"
-- waitForAnimationToEnd
+    id: "Abdominal pain-chip"
 - tapOn:
-    id: "checked-5b91f965-09b7-4765-b0e4-47d3adc68675"
-- scrollUntilVisible:
-    element:
-      text: SAVE
-    direction: DOWN
-    centerElement: false
-- waitForAnimationToEnd
-
-- tapOn: 
-    text: SAVE
-    retryTapIfNoChange: false
-- waitForAnimationToEnd
-
-- waitForAnimationToEnd
-- scrollUntilVisible:
-    element:
-      text: Life events
-    direction: DOWN
-    centerElement: true
-- waitForAnimationToEnd
-
-- assertVisible: 
-    text : "Food or eating related issues"
-    below :
-     text : impulse related
-- tapOn : "Food or eating related issues"
-- waitForAnimationToEnd
-- tapOn:
-    id: "checked-33b45412-e5ea-4c7c-be03-212c93997935"
+    id: "Increased sleep-chip"
+- tapOn: "No side effects or symptoms"
 - tapOn:
     id: "button"
-- waitForAnimationToEnd
-
-
-- scrollUntilVisible:
-    element:
-      text: Other 
-    direction: DOWN
-    centerElement: true
-- assertVisible: 
-    text : "Trauma related symptoms"
-    below :
-     text : "Bizarre or unusual experiences"
-- tapOn: "Trauma related symptoms"
-- tapOn:
-    id: "checked-31cc9fd8-e755-42d6-9eda-e4a9c605c201"
-- waitForAnimationToEnd
-- tapOn:
-    id: "checked-c0f5c937-5eef-4494-8981-b6d1f6fb37b0"
-- waitForAnimationToEnd
-- tapOn: SAVE
-- waitForAnimationToEnd
-- scrollUntilVisible:
-    element:
-      text: DONE 
-    direction: DOWN
-    centerElement: False
-- waitForAnimationToEnd
-# done button
-- tapOn:
-    id: "button"
-
+- assertNotVisible: "Abdominal pain"
+- assertNotVisible: "Fever"
 
 # remove provider in history 
 

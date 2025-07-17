@@ -97,11 +97,25 @@ appId: "{APP_ID}"
    
 - tapOn: "Home"   
 - assertNoDefectsWithAI
-- assertVisible: "Latest hypothesis"
 - tapOn: "󰂜"
 - tapOn: "Logging reminders"
 - tapOn:
     point: "50%,55%"
+- tapOn:
+    text: 󰄱
+    index: 2
+- tapOn:
+    text: 󰄱
+    index: 2    
+- tapOn:
+    text: 󰄱
+    index: 1 
+- tapOn:
+    text: 󰄱
+    index: 1   
+- tapOn:
+    text: 󰄱
+    index: 1       
 
 - scrollUntilVisible:
     element:

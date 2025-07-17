@@ -93,21 +93,55 @@ appId: "{APP_ID}"
     id: "segmented-button-Days"
 - assertNoDefectsWithAI
 - tapOn:
-    point: "94%,49%"
+    point: 50%,63%
 - assertVisible: "Suggestions"
 - assertNoDefectsWithAI
 - runFlow:
     when:
       visible:
-        id: "button"
+        text: "READ"
     commands:
       - tapOn:
           id: "button"
       - assertNoDefectsWithAI    
       - tapOn: "Done"    
       - back
-      
-
+- runFlow:
+    when:
+      visible:
+        text: "WATCH"
+    commands:
+      - tapOn:
+          id: "button"
+      - assertNoDefectsWithAI    
+      - assertVisible: "Share"
+      - assertVisible: "YouTube Home"
+      - tapOn: "Done"    
+      - back
+- tapOn:
+    point: "50%,72%"
+- runFlow:
+    when:
+      visible:
+        text: "READ"
+    commands:
+      - tapOn:
+          id: "button"
+      - assertNoDefectsWithAI    
+      - tapOn: "Done"    
+      - back
+- runFlow:
+    when:
+      visible:
+        text: "WATCH"
+    commands:
+      - tapOn:
+          id: "button"
+      - assertNoDefectsWithAI    
+      - assertVisible: "Share"
+      - assertVisible: "YouTube Home"
+      - tapOn: "Done"    
+      - back
 
 
 

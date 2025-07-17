@@ -156,20 +156,30 @@ appId: "{APP_ID}"
 - waitForAnimationToEnd
 - tapOn:
     id: "More"
-    index: 0
+    below:
+      text :"Exercise"
+    above :
+      text : "Sleep"
 - tapOn:
     id: My typical
-    index: 0 
+    below:
+      text : "Caffeine"
+    above :
+      text : Alcohol
 - waitForAnimationToEnd
 
 - tapOn:
     id:  Less
-    index: 0
+    below:
+      text : Alcohol
 - waitForAnimationToEnd
 
 - tapOn:
     id:  More
-    index: 1
+    below:
+      text : 
+    above :
+      text : 
 - waitForAnimationToEnd
 - tapOn: "CONTINUE"
 - waitForAnimationToEnd
@@ -311,20 +321,22 @@ appId: "{APP_ID}"
 - waitForAnimationToEnd
 - tapOn:
     id: "More"
-    index: 0
+    below:
+      text :"Exercise"
+    above :
+      text : "Sleep"
 - tapOn:
     id: My typical
-    index: 0 
+    below:
+      text : "Caffeine"
+    above :
+      text : Alcohol
 - waitForAnimationToEnd
 
 - tapOn:
     id:  Less
-    index: 0
-- waitForAnimationToEnd
-
-- tapOn:
-    id:  More
-    index: 1
+    below:
+      text : Alcohol
 - waitForAnimationToEnd
 - tapOn: "CONTINUE"
 - waitForAnimationToEnd
