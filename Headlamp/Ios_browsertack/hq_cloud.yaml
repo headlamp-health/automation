@@ -1,0 +1,278 @@
+appId: org.reactjs.native.example.Headlamp.Stage
+---
+
+- launchApp:
+   appId: org.reactjs.native.example.Headlamp.Stage
+   clearState: true
+   clearKeychain: true
+   stopApp: true
+   permissions:
+    all: allow
+- waitForAnimationToEnd
+
+- runFlow : 
+    when:
+        visible: "Check your invite status"
+    commands:
+        - tapOn: already-have-account
+        - tapOn: "email"
+        - inputText: "maestro.test4@yopmail.com"
+        - tapOn:
+            id: "text-input-outlined"
+            index: 1
+        - inputText: "Headlamp@123"
+        - waitForAnimationToEnd
+        - tapOn: "SIGN IN"
+        - hideKeyboard
+        - waitForAnimationToEnd
+        - tapOn:
+            id: "sign-in-button-testid"
+        - waitForAnimationToEnd
+        - assertNoDefectsWithAI
+        - runFlow:
+            when:
+                visible: "“Headlamp Stage” Would Like to Send You Notifications"
+            commands:
+                - tapOn: "Allow"
+        - runFlow:
+            when:
+                visible: Records ready notification
+            commands:
+                - tapOn: CONTINUE
+                - waitForAnimationToEnd:
+                    timeout: 5000
+                - assertVisible: Congratulations
+                - tapOn: CONTINUE    
+        - runFlow:
+            when:
+                visible: "Higher power level = better insights"
+            commands:
+                - tapOn:
+                    point: 50%,47%
+                - waitForAnimationToEnd:
+                    timeout: 5000 
+        - runFlow:
+            when:
+                visible: SUGGEST ACTIVITIES FOR ME 
+            commands:
+                - tapOn: SUGGEST ACTIVITIES FOR ME
+                - waitForAnimationToEnd:
+                    timeout: 9000 
+                - tapOn: ACCEPT ACTIVITIES
+                - tapOn: CONTINUE
+                - tapOn: CONTINUE
+        - tapOn:
+            id: button
+
+        - tapOn:
+            id: button
+
+        - tapOn:
+            id: button
+
+        - tapOn:
+            id: button
+        - runFlow:
+            when:
+                visible: "Apple Health"
+            commands : 
+                - tapOn:
+                    id: "button"   
+                - tapOn: Allow “Headlamp Stage” to read
+                - tapOn:
+                    point: 96% , 10%       
+        - assertNoDefectsWithAI
+        - runFlow:
+            when:
+                visible: skip for now
+            commands:
+                - tapOn:
+                    text: skip for now
+                - waitForAnimationToEnd:
+                    timeout: 9000    
+
+        - runFlow:
+            when:
+                visible: your insights data has been converted and simplified to match 
+            commands:
+                - assertVisible : GOT IT
+                - tapOn:
+                    text: GOT IT
+                - waitForAnimationToEnd:
+                    timeout: 9000  
+        - runFlow:
+            when:
+                visible: we've updated our Hypothesis to be even more personalized
+            commands:
+                - assertVisible : GOT IT
+                - tapOn:
+                    text: GOT IT
+                - waitForAnimationToEnd:
+                    timeout: 9000                                  
+        
+- tapOn: "  Power Power"
+- scrollUntilVisible:
+    element:  
+      text: "Health questionnaires"
+    direction: DOWN
+
+- tapOn: "Health questionnaires"
+
+- scrollUntilVisible:
+    element:
+      text: "Health questionnaires"
+    direction: DOWN
+    centerElement: true
+- runFlow:
+    when:
+      visible:
+
+    commands:
+      - tapOn: 
+         text: "BEGIN 󰅂"
+- runFlow:
+    when:
+      visible:
+         text: "TAKE AGAIN 󰅂"
+    commands:
+      - tapOn:
+          text: "TAKE AGAIN 󰅂"
+      - waitForAnimationToEnd
+- swipe:
+    direction: DOWN      
+- assertVisible : UCLA Loneliness Scale
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "1 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "2 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "3 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "4 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "5 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "6 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "7 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "8 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "9 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "10 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "11 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "12 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "13 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "14 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "15 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "16 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "17 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "18 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "19 of 20"
+
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "20 of 20"
+
+- waitForAnimationToEnd
+- tapOn:
+    id: "button"
+
+-  runFlow:
+        when:
+            visible:
+                text: "Got IT"
+        commands:
+            - tapOn: 
+               text:  "Got IT"   
+
+- assertVisible: "Assessment complete"
+- assertVisible: "UCLA Loneliness Scale"

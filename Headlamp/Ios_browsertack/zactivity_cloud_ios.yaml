@@ -1,0 +1,223 @@
+appId: org.reactjs.native.example.Headlamp.Stage
+---
+
+- launchApp:
+   appId: org.reactjs.native.example.Headlamp.Stage
+   clearState: true
+   clearKeychain: true
+   stopApp: true
+   permissions:
+    all: allow
+- waitForAnimationToEnd
+
+- runFlow : 
+    when:
+        visible: "Check your invite status"
+    commands:
+        - tapOn: already-have-account
+        - tapOn: "email"
+        - inputText: "maestro.test4@yopmail.com"
+        - tapOn:
+            id: "text-input-outlined"
+            index: 1
+        - inputText: "Headlamp@123"
+        - waitForAnimationToEnd
+        - tapOn: "SIGN IN"
+        - hideKeyboard
+        - waitForAnimationToEnd
+        - tapOn:
+            id: "sign-in-button-testid"
+        - waitForAnimationToEnd
+        - assertNoDefectsWithAI
+        - runFlow:
+            when:
+                visible: "“Headlamp Stage” Would Like to Send You Notifications"
+            commands:
+                - tapOn: "Allow"
+        - runFlow:
+            when:
+                visible: Records ready notification
+            commands:
+                - tapOn: CONTINUE
+                - waitForAnimationToEnd:
+                    timeout: 5000
+                - assertVisible: Congratulations
+                - tapOn: CONTINUE    
+        - runFlow:
+            when:
+                visible: "Higher power level = better insights"
+            commands:
+                - tapOn:
+                    point: 50%,47%
+                - waitForAnimationToEnd:
+                    timeout: 5000 
+        - runFlow:
+            when:
+                visible: SUGGEST ACTIVITIES FOR ME 
+            commands:
+                - tapOn: SUGGEST ACTIVITIES FOR ME
+                - waitForAnimationToEnd:
+                    timeout: 9000 
+                - tapOn: ACCEPT ACTIVITIES
+                - tapOn: CONTINUE
+                - tapOn: CONTINUE
+        - tapOn:
+            id: button
+
+        - tapOn:
+            id: button
+
+        - tapOn:
+            id: button
+
+        - tapOn:
+            id: button
+        - runFlow:
+            when:
+                visible: "Apple Health"
+            commands : 
+                - tapOn:
+                    id: "button"   
+                - tapOn: Allow “Headlamp Stage” to read
+                - tapOn:
+                    point: 96% , 10%       
+        - assertNoDefectsWithAI
+        - runFlow:
+            when:
+                visible: skip for now
+            commands:
+                - tapOn:
+                    text: skip for now
+                - waitForAnimationToEnd:
+                    timeout: 9000    
+
+        - runFlow:
+            when:
+                visible: your insights data has been converted and simplified to match 
+            commands:
+                - assertVisible : GOT IT
+                - tapOn:
+                    text: GOT IT
+                - waitForAnimationToEnd:
+                    timeout: 9000  
+        - runFlow:
+            when:
+                visible: we've updated our Hypothesis to be even more personalized
+            commands:
+                - assertVisible : GOT IT
+                - tapOn:
+                    text: GOT IT
+                - waitForAnimationToEnd:
+                    timeout: 9000           
+# activty Teacking , adding custom and Standard activity and then deleting them
+# edit Exercise
+
+
+- tapOn:   Power Power
+# - scrollUntilVisible:
+#     element:  
+#       id : activty Teacking 
+#     direction: DOWN
+# - tapOn:
+#     id: "activty Teacking"
+- scrollUntilVisible:
+    element:  
+      text : "Activity tracking" 
+    direction: DOWN
+- tapOn:
+    text : "Activity tracking"  
+# adding a activity 
+# Standard
+- runFlow:
+    when:
+      notVisible:
+        text: Diet
+    commands:      
+      - tapOn: "add "
+      - tapOn: Standard
+      - tapOn: "Diet"
+      # add activity button       
+      - tapOn:
+          id: "button"
+      - scrollUntilVisible:
+          element:
+            text: "Diet"
+          direction: DOWN
+          centerElement: true    
+      - assertVisible:
+          text : "Diet" 
+          above : "2500 calories per day"
+- waitForAnimationToEnd
+
+
+# custom 
+- tapOn: "add "
+- tapOn: "Custom"
+- tapOn:
+    id: "text-input-outlined-label-inactive"
+- inputText: Cycling
+- pressKey: Enter
+- tapOn:
+    id: "custom-activity-Track as"
+- tapOn: "yes/no Log whether or not you did this activity"
+# add activity button    
+- tapOn:
+    id: "button"
+
+- waitForAnimationToEnd
+
+# edit activity 
+- swipe :
+   direction : DOWN
+- scrollUntilVisible:
+    element:
+      text: Exercise
+    direction: DOWN
+    centerElement: false
+
+- tapOn:
+    id: "edit-activity-Exercise"
+
+- tapOn:
+    id: "custom-activity-My typical"
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outline"
+- eraseText
+- inputText: 30
+- back
+- waitForAnimationToEnd
+
+# delete activity
+- scrollUntilVisible:
+    element:
+      text: Diet
+    direction: DOWN
+    centerElement: false
+- waitForAnimationToEnd
+- tapOn:
+    id: "edit-activity-Diet"
+- waitForAnimationToEnd
+# remove button     
+- tapOn:
+    id: "remove-activity-button"   
+- tapOn: "REMOVE"
+- waitForAnimationToEnd
+- scrollUntilVisible:
+    element:
+      text: Cycling
+    direction: DOWN
+    centerElement: false
+- tapOn:
+    id: "edit-activity-Cycling"
+    rightOf:
+      text: Cycling 
+    below:
+      text : Cycling   
+# remove button     
+- tapOn:
+    id: "remove-activity-button"  
+- tapOn: "REMOVE"
+- assertNotVisible: diet 
+- assertNotVisible: Cycling 
+- back
