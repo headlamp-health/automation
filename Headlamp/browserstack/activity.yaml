@@ -186,24 +186,32 @@ appId: "{APP_ID}"
 - waitForAnimationToEnd
 # remove button     
 - tapOn:
-    id: "remove-activity-button"   
+    id: "remove-activity-button"
+- waitForAnimationToEnd
+
 - tapOn: "REMOVE"
+- waitForAnimationToEnd
+
 - waitForAnimationToEnd
 - scrollUntilVisible:
     element:
       text: cycling
     direction: DOWN
     centerElement: false
+- waitForAnimationToEnd
 - tapOn:
     text: edit
     rightOf:
       text: cycling 
     below:
-      text : cycling   
-# remove button     
+      text : cycling
+- waitForAnimationToEnd
+# remove button
 - tapOn:
-    id: "remove-activity-button"  
+    id: "remove-activity-button"
+- waitForAnimationToEnd
 - tapOn: "REMOVE"
-- assertNotVisible: diet 
+- waitForAnimationToEnd
+- assertNotVisible: diet
 - assertNotVisible: cycling 
 - back   
