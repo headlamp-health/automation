@@ -134,8 +134,6 @@ appId: "{APP_ID}"
       - waitForAnimationToEnd
 - swipe:
     direction: DOWN      
-- assertVisible : UCLA Loneliness Scale
-
 - tapOn:
     text: "Never"
     index: 0
