@@ -301,6 +301,16 @@ appId: "{APP_ID}"
         - assertNoDefectsWithAI
         - tapOn:
             id: "button"
+- runFlow:
+    when:
+      visible:
+         text: "Feedback"
+    commands:
+
+        - tapOn:
+            text: "Don't show again"
+
+        - waitForAnimationToEnd        
 - tapOn: "Power"
 - scrollUntilVisible:
     element:  

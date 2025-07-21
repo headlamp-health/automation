@@ -146,7 +146,7 @@ appId: "{APP_ID}"
     direction: DOWN
     centerElement: true   
 - assertNoDefectsWithAI
-- tapOn: "Alcohol"
+- tapOn: "Caffeine"
 - assertNoDefectsWithAI
 - tapOn: "Energy"
 - assertVisible:
