@@ -3,15 +3,15 @@ appId: "{APP_ID}"
 
 --- 
 - launchApp:
-  appId: "{APP_ID}"
-  clearState: true
-  clearKeychain: true
-  stopApp: false
-  permissions:
-   all: allow
+   appId: "{APP_ID}"
+   clearState: true
+   clearKeychain: true
+   stopApp: false
+   permissions:
+    all: allow
 - waitForAnimationToEnd
 
-  
+   
 - assertNoDefectsWithAI
 - tapOn: already-have-account
 
@@ -21,78 +21,59 @@ appId: "{APP_ID}"
 - tapOn: "password"
 - inputText: "Headlamp@123"
 - tapOn:
-   text: "Sign In"
-   index: 0
+    text: "Sign In"
+    index: 0
 - tapOn:
-   id: "sign-in-button-testid"
+    id: "sign-in-button-testid"
 - assertNoDefectsWithAI
 
-- runFlow:
-  when:
-   visible: Records ready notification
-  commands:
-   - tapOn: CONTINUE
-   - waitForAnimationToEnd:
-       timeout: 5000
-   - assertVisible: Congratulations
-   - tapOn: CONTINUE    
 - runFlow:
    when:
-     visible: "Higher power level = better insights"
+    visible: Records ready notification
    commands:
-     - tapOn:
-        point: 50%,47%
-     - waitForAnimationToEnd:
-         timeout: 5000 
+    - tapOn: CONTINUE
+    - waitForAnimationToEnd:
+        timeout: 5000
+    - assertVisible: Congratulations
+    - tapOn: CONTINUE    
 - runFlow:
-  when:
-     visible: SUGGEST ACTIVITIES FOR ME 
-  commands:
-     - tapOn: SUGGEST ACTIVITIES FOR ME
-     - waitForAnimationToEnd:
-        timeout: 9000 
-     - tapOn: ACCEPT ACTIVITIES
-     - tapOn: CONTINUE
-     - tapOn: CONTINUE
+    when:
+      visible: "Higher power level = better insights"
+    commands:
+      - tapOn:
+         point: 50%,47%
+      - waitForAnimationToEnd:
+          timeout: 5000 
+- runFlow:
+   when:
+      visible: SUGGEST ACTIVITIES FOR ME 
+   commands:
+      - tapOn: SUGGEST ACTIVITIES FOR ME
+      - waitForAnimationToEnd:
+         timeout: 9000 
+      - tapOn: ACCEPT ACTIVITIES
+      - tapOn: CONTINUE
+      - tapOn: CONTINUE
 - tapOn:
-   id: button
+    id: button
 
 - tapOn:
-   id: button
+    id: button
 
 - tapOn:
-   id: button
+    id: button
 
 - tapOn:
-   id: button
+    id: button
 - assertNoDefectsWithAI
 - runFlow:
-  when:
-     visible: skip for now
-  commands:
-     - tapOn:
-         text: skip for now
-     - waitForAnimationToEnd:
-         timeout: 9000    
-- runFlow:
-  when:
-     visible: your insights data has been converted and simplified to match 
-  commands:
-     - assertVisible : GOT IT
-     - tapOn:
-         text: GOT IT
-     - waitForAnimationToEnd:
-         timeout: 9000  
-- runFlow:
-  when:
-     visible: we've updated our Hypothesis to be even more personalized
-  commands:
-     - assertVisible : GOT IT
-     - tapOn:
-         text: GOT IT
-     - waitForAnimationToEnd:
-         timeout: 9000                             
-  
+   when:
+      visible: skip for now
+   commands:
+      - tapOn:
+          text: skip for now
+      - waitForAnimationToEnd:
+          timeout: 9000    
 
 
 - tapOn: "Power"
