@@ -1,0 +1,132 @@
+appId: org.reactjs.native.example.Headlamp.Stage
+---
+# health questionnaires 
+
+- tapOn:   Power Power
+- scrollUntilVisible:
+    element:  
+      text: Health questionnaires
+    direction: DOWN
+- tapOn: "Health questionnaires" 
+
+- scrollUntilVisible:
+    element:
+      text: "Health questionnaires"
+    direction: DOWN
+    centerElement: true
+- runFlow:
+    when:
+      visible:
+         text: "BEGIN 󰅂"
+         below:
+            text: "Health questionnaires"
+    commands:
+      - tapOn: 
+         text: "BEGIN 󰅂"
+         below:
+           text: "Health questionnaires"
+- runFlow:
+    when:
+      visible:
+         text: "Take again"
+         below:
+            text: "Health questionnaires"
+    commands:
+      - tapOn:
+          text: TAKE AGAIN
+          below:
+           text: "Health questionnaires)"
+      - waitForAnimationToEnd
+- swipe:
+    direction: DOWN      
+- assertVisible: "Patient health questionnaire (PHQ-8)"
+- tapOn:
+    text: "Not at all"
+    below: "Little interest or pleasure in doing things"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Feeling down, depressed, or hopeless"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Trouble falling or staying asleep, or sleeping too much"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Feeling tired or having little energy"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Poor appetite or overeating"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Feeling bad about yourself - or that you are a failure or have let yourself or your family down"
+- waitForAnimationToEnd
+- scroll
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Trouble concentrating on things, such as reading the newspaper or watching television"
+- waitForAnimationToEnd
+- scroll
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lor more than usual "
+- waitForAnimationToEnd
+
+
+
+- tapOn: "NEXT"
+- waitForAnimationToEnd
+
+- assertVisible: "General anxiety questionnaire (GAD-7)"
+- tapOn:
+    text: "Not at all"
+    below: "Feeling nervous, anxious, or on edge"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Not being able to stop or control worrying"
+- waitForAnimationToEnd
+- tapOn:
+    text: "Not at all"
+    below: "Worrying too much about different things"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Trouble relaxing"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Being so restless that it is hard to sit still"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Becoming easily annoyed or irritable"
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "Not at all"
+    below: "Feeling afraid, as if something awful might happen"
+
+- waitForAnimationToEnd
+- tapOn:
+    id: "button"
+- waitForAnimationToEnd
+- assertVisible: "General anxiety questionnaire (GAD-7)"
+- assertVisible: "New insights discovered!"
+- assertVisible: "Insights"

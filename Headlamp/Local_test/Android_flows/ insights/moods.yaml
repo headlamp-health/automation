@@ -1,0 +1,35 @@
+appId: com.headlamp.uno.stage
+---
+- killApp
+- launchApp:
+   appId: com.headlamp.uno.stage
+- tapOn: "Insights"
+- tapOn:
+    text: "Moods" 
+- tapOn: "Days"
+- assertVisible: "Mood history"
+- assertNoDefectsWithAI
+- assertVisible: "VIEW HYPOTHESIS"
+- tapOn: "VIEW HYPOTHESIS"
+- assertVisible: "Why you might be feeling "
+- assertVisible: "Hypothesis"
+- back
+- assertVisible: "Mood trend"
+- assertVisible:
+    text: "Pleasantness"
+    leftOf:
+      text: "energy"
+- scrollUntilVisible:
+    element:
+      text: "Mood logged factors "
+    direction: DOWN
+    centerElement: true       
+- assertVisible: "Most logged moods"
+- assertVisible: "Most logged factors"   
+- assertNoDefectsWithAI
+
+- scrollUntilVisible:
+    element:
+      text: "Factors by mood"
+    direction: DOWN 
+- assertNoDefectsWithAI

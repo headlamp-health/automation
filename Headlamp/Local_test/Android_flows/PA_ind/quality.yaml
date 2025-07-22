@@ -1,0 +1,68 @@
+appId: com.headlamp.uno
+---
+
+
+- tapOn: "Power"
+- scrollUntilVisible:
+    element:  
+      text: Personality assessments
+    direction: DOWN
+- tapOn: "Personality assessments" 
+
+- scrollUntilVisible:
+    element:
+      text: "Quality of life"
+    direction: DOWN
+    centerElement : true
+- runFlow:
+    when:
+      visible: BEGIN
+    commands:
+      - tapOn: 
+          text: BEGIN
+          below:
+           text: "Quality of life"
+- runFlow:
+    when:
+      visible: "TAKE AGAIN" 
+    commands:
+      - tapOn:
+          text: "TAKE AGAIN"
+          below:
+           text: "Quality of life"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+- waitForAnimationToEnd
+- tapOn: "delighted"
+
+- waitForAnimationToEnd
+- tapOn: "COMPLETE"
+- waitForAnimationToEnd

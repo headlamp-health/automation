@@ -108,6 +108,11 @@ appId: "{APP_ID}"
     index: 0    
 - tapOn: "Alcohol"
 - assertNoDefectsWithAI
+- scrollUntilVisible:
+    element:
+      text: "Cognitive assessment (Stroop)"
+      index: 1
+    direction: DOWN
 - assertVisible:
     text: "Energy"
     index: 1

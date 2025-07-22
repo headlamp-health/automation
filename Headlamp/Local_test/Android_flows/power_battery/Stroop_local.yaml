@@ -1,0 +1,50 @@
+appId: com.headlamp.uno.stage
+---
+- killApp
+- launchApp:
+   appId: com.headlamp.uno.stage
+- tapOn: "Power"
+- tapOn:
+    text: "Cognitive assessment (Stroop)"
+- assertVisible: "Stroop"
+- assertVisible:
+    id: "button"
+    index: 0
+- assertVisible: "view stats"
+- tapOn:
+    id: "button"
+    index: 0
+- tapOn:
+    point: "35%,40%"
+- tapOn:
+    point: "65%,40%"
+- tapOn:
+    point: "65%,54%"
+- tapOn:
+    point: "35%,54%"
+- tapOn:
+    point: "35%,40%"
+- tapOn:
+    point: "65%,54%"
+- tapOn:
+    point: "35%,40%"
+- tapOn:
+    point: "35%,40%"
+- runFlow:
+   when:
+      visible: "Bonus points!"
+   commands:    
+      - assertVisible: "Completing your assignments each day is an important step toward\
+          \ improving your mental health."
+      - assertVisible: "Bonus points!"
+      - tapOn:
+          id: "button"
+      - tapOn:
+          id: "button"
+- assertVisible: "CONTINUE"
+- assertVisible: "PLAY AGAIN"
+- assertVisible: "Score"
+- assertVisible: "Streak"
+- tapOn:
+    id: "button"
+    index: 1

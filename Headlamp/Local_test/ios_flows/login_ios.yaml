@@ -1,9 +1,8 @@
-appId: "{APP_ID}"
+appId: org.reactjs.native.example.Headlamp.Stage
+---
 
-
---- 
 - launchApp:
-   appId: "{APP_ID}"
+   appId: org.reactjs.native.example.Headlamp.Stage
    clearState: true
    clearKeychain: true
    stopApp: false
@@ -16,16 +15,15 @@ appId: "{APP_ID}"
 
 
 - tapOn: "email"
-- inputText: "testrigor.1@yopmail.com"
+- inputText: "maestro.test4@yopmail.com"
 
 - tapOn: "password"
 - inputText: "Headlamp@123"
 - waitForAnimationToEnd
-- hideKeyboard
 - tapOn: "Sign In"
+- hideKeyboard
 - waitForAnimationToEnd
-- tapOn:
-    id: "sign-in-button-testid"
+- tapOn: "sign-in-button"
 - waitForAnimationToEnd
 - assertNoDefectsWithAI
 
@@ -67,6 +65,17 @@ appId: "{APP_ID}"
 
 - tapOn:
     id: button
+- runFlow:
+    when:
+      visible: "Tap “Turn On All” on the next screen
+
+        for the best experience"
+    commands : 
+        - tapOn:
+            id: "button"   
+        - tapOn: Allow “Headlamp Stage” to read
+        - tapOn:
+            point: 96% , 10%       
 - assertNoDefectsWithAI
 - runFlow:
    when:
@@ -94,35 +103,4 @@ appId: "{APP_ID}"
           text: GOT IT
       - waitForAnimationToEnd:
           timeout: 9000                             
-- tapOn: "Home"
-- tapOn:
-    id: "batteries-to-charge"
-- assertVisible: "Power level"
-- assertVisible: "Charge all for bonus points"
-- tapOn: "Home"
-- tapOn:
-    id: "unviewed-suggestions"
-- tapOn: "GOT IT"
-- assertVisible:
-    text: "Insights"
-- tapOn:
-    text: "SUGGESTIONS"
-    index: 0
-- tapOn: "Home"
-- tapOn:
-    id: "hypothesis-drawer"
-- assertVisible: "Latest hypothesis"
-- assertVisible: "Why you might be feeling Scared"
-- "back"
-- tapOn:
-    id: "reward-points-container"
-- assertVisible: "Get a gift card"
-- assertVisible:
-    id: "progress-bar"
-- assertVisible: "Rewards"
-- "back"
-
-
-
-
-
+   

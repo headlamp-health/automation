@@ -1,0 +1,31 @@
+appId: com.headlamp.uno.stage
+---
+- launchApp:
+   appId: com.headlamp.uno.stage
+- tapOn: "Home"
+- tapOn:
+    id: "batteries-to-charge"
+- assertVisible: "Power level"
+- assertVisible: "Charge all for bonus points"
+- tapOn: "Home"
+- tapOn:
+    id: "unviewed-suggestions"
+- tapOn: "GOT IT"
+- assertVisible:
+    text: "Insights"
+- tapOn:
+    text: "SUGGESTIONS"
+    index: 0
+- tapOn: "Home"
+- tapOn:
+    id: "hypothesis-drawer"
+- assertVisible: "Latest hypothesis"
+- assertVisible: "Why you might be feeling Scared"
+- "back"
+- tapOn:
+    id: "reward-points-container"
+- assertVisible: "Get a gift card"
+- assertVisible:
+    id: "progress-bar"
+- assertVisible: "Rewards"
+- "back"

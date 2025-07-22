@@ -1,9 +1,8 @@
-appId: "{APP_ID}"
-
+appId: com.headlamp.uno.stage
 
 --- 
 - launchApp:
-   appId: "{APP_ID}"
+   appId: com.headlamp.uno.stage
    clearState: true
    clearKeychain: true
    stopApp: false
@@ -21,11 +20,10 @@ appId: "{APP_ID}"
 - tapOn: "password"
 - inputText: "Headlamp@123"
 - waitForAnimationToEnd
-- hideKeyboard
 - tapOn: "Sign In"
+- hideKeyboard
 - waitForAnimationToEnd
-- tapOn:
-    id: "sign-in-button-testid"
+- tapOn: "sign-in-button"
 - waitForAnimationToEnd
 - assertNoDefectsWithAI
 
@@ -94,35 +92,4 @@ appId: "{APP_ID}"
           text: GOT IT
       - waitForAnimationToEnd:
           timeout: 9000                             
-- tapOn: "Home"
-- tapOn:
-    id: "batteries-to-charge"
-- assertVisible: "Power level"
-- assertVisible: "Charge all for bonus points"
-- tapOn: "Home"
-- tapOn:
-    id: "unviewed-suggestions"
-- tapOn: "GOT IT"
-- assertVisible:
-    text: "Insights"
-- tapOn:
-    text: "SUGGESTIONS"
-    index: 0
-- tapOn: "Home"
-- tapOn:
-    id: "hypothesis-drawer"
-- assertVisible: "Latest hypothesis"
-- assertVisible: "Why you might be feeling Scared"
-- "back"
-- tapOn:
-    id: "reward-points-container"
-- assertVisible: "Get a gift card"
-- assertVisible:
-    id: "progress-bar"
-- assertVisible: "Rewards"
-- "back"
-
-
-
-
-
+   

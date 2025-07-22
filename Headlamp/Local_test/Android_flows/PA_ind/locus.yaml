@@ -1,0 +1,125 @@
+appId: com.headlamp.uno
+---
+# locus of control flow 
+
+- tapOn: "Power"
+- scrollUntilVisible:
+    element:  
+      text: Personality assessments
+    direction: DOWN
+- tapOn: "Personality assessments" 
+
+- scrollUntilVisible:
+    element:
+      text: "Locus of control"
+    direction: DOWN
+    centerElement : true 
+- runFlow:
+    when:
+      visible: BEGIN
+    commands:
+      - tapOn: 
+          text: BEGIN
+          below:
+           text: Locus of control
+- runFlow:
+    when:
+      visible: "TAKE AGAIN" 
+    commands:
+      - tapOn:
+          text: "TAKE AGAIN"
+          below:
+           text: "Locus of control"
+
+- waitForAnimationToEnd
+- swipe:             
+    direction: DOWN
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    index: 0
+- waitForAnimationToEnd
+- tapOn:
+    text: "true"
+    below:
+      text: "18. Persistence and hard work usually lead to success "
+- waitForAnimationToEnd
+
+- tapOn:
+    text: "true"
+    below:
+      text: "19. It is difficult to know who my real friends are "
+- waitForAnimationToEnd
+         
+- tapOn:
+    text: "true"
+    below:
+     text : "20. Other people usually control my life "
+- waitForAnimationToEnd
+   
+- tapOn: "COMPLETE"
+- waitForAnimationToEnd
