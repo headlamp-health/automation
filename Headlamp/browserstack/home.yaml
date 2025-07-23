@@ -94,7 +94,6 @@ appId: "{APP_ID}"
           text: GOT IT
       - waitForAnimationToEnd:
           timeout: 9000                             
-- tapOn: "Home"
 - tapOn:
     id: "batteries-to-charge"
 - assertVisible: "Power level"
