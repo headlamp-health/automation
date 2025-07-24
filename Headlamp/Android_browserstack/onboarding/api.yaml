@@ -21,7 +21,9 @@ appId: "{APP_ID}"
 - assertNoDefectsWithAI
 
 - assertNoDefectsWithAI
-
+- tapOn:
+    id: textInput
+    index: 0
 - runScript:
     file: fetchOtp.js
     env:
@@ -30,9 +32,7 @@ appId: "{APP_ID}"
       TWILIO_AUTH_TOKEN: "${TWILIO_AUTH_TOKEN}"
 
 - evalScript: ${output.OTP_CODE = output.script.result}
-- tapOn:
-    id: textInput
-    index: 0
+
 - waitForAnimationToEnd
 - inputText: "${output.OTP_CODE}"
 - waitForAnimationToEnd
