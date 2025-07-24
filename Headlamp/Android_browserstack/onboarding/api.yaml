@@ -1,0 +1,22 @@
+appId: com.headlamp.uno.stage
+
+--- 
+- launchApp:
+   appId: com.headlamp.uno.stage
+   clearState: true
+   clearKeychain: true
+   stopApp: false
+   permissions:
+    all: allow
+- waitForAnimationToEnd
+- tapOn:
+    id: "text-input-outlined"  
+- assertNoDefectsWithAI
+- runScript:
+    file: fetchOtp.js
+    env:
+      TO_PHONE_NUMBER: "+19895147557"
+
+- evalScript: ${output.OTP_CODE = output.script.result}
+
+- inputText: "${output.OTP_CODE}"
