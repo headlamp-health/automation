@@ -1,5 +1,11 @@
 appId: "{APP_ID}"
 
+
+env:
+    TO_PHONE_NUMBER: "{phone_number}"
+    TWILIO_ACCOUNT_SID: "${TWILIO_ACCOUNT_SID}"
+    TWILIO_AUTH_TOKEN: "${TWILIO_AUTH_TOKEN}"
+
 --- 
 - launchApp:
     appId: "{APP_ID}"
@@ -26,11 +32,6 @@ appId: "{APP_ID}"
     index: 0
 - runScript:
     file: fetchOtp.js
-    env:
-      TO_PHONE_NUMBER: "{phone_number}"
-      TWILIO_ACCOUNT_SID: "${TWILIO_ACCOUNT_SID}"
-      TWILIO_AUTH_TOKEN: "${TWILIO_AUTH_TOKEN}"
-
 - evalScript: ${output.OTP_CODE = output.script.result}
 
 - waitForAnimationToEnd
