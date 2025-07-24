@@ -12,6 +12,8 @@ appId: "{APP_ID}"
 - waitForAnimationToEnd
 - tapOn:
     id: "text-input-outlined"  
+- inputText: "${number_without_areacode_phone_number}"
+
 - assertNoDefectsWithAI
 
 - assertNoDefectsWithAI
@@ -24,7 +26,9 @@ appId: "{APP_ID}"
       TWILIO_AUTH_TOKEN: "${TWILIO_AUTH_TOKEN}"
 
 - evalScript: ${output.OTP_CODE = output.script.result}
-
+- tapOn:
+    id: textInput
+    index: 0
 
 - inputText: "${output.OTP_CODE}"
 
