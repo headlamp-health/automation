@@ -13,7 +13,11 @@ appId: "{APP_ID}"
 - tapOn:
     id: "text-input-outlined"  
 - inputText: "${number_without_areacode_phone_number}"
-
+- waitForAnimationToEnd
+- pressKey : enter
+- waitForAnimationToEnd
+- tapOn:
+    id: "CONTINUE_ONBOARDING"
 - assertNoDefectsWithAI
 
 - assertNoDefectsWithAI
@@ -29,6 +33,7 @@ appId: "{APP_ID}"
 - tapOn:
     id: textInput
     index: 0
-
+- waitForAnimationToEnd
 - inputText: "${output.OTP_CODE}"
+- waitForAnimationToEnd
 
