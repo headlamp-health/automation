@@ -1,22 +1,30 @@
-appId: com.headlamp.uno.stage
+appId: "{APP_ID}"
 
 --- 
 - launchApp:
-   appId: com.headlamp.uno.stage
-   clearState: true
-   clearKeychain: true
-   stopApp: false
-   permissions:
-    all: allow
+    appId: "{APP_ID}"
+    clearState: true
+    clearKeychain: true
+    stopApp: false
+    permissions:
+      all: allow
+
 - waitForAnimationToEnd
 - tapOn:
     id: "text-input-outlined"  
 - assertNoDefectsWithAI
+
+- assertNoDefectsWithAI
+
 - runScript:
     file: fetchOtp.js
     env:
-      TO_PHONE_NUMBER: "+19895147557"
+      TO_PHONE_NUMBER: "{phone_number}"
+      TWILIO_ACCOUNT_SID: "${TWILIO_ACCOUNT_SID}"
+      TWILIO_AUTH_TOKEN: "${TWILIO_AUTH_TOKEN}"
 
 - evalScript: ${output.OTP_CODE = output.script.result}
 
+
 - inputText: "${output.OTP_CODE}"
+
