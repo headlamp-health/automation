@@ -75,6 +75,7 @@ appId: "{APP_ID}"
       - waitForAnimationToEnd:
           timeout: 9000    
 
+
 - tapOn: "Power"
 - tapOn:
     text: "Cognitive assessment (Stroop)"
