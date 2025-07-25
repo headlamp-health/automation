@@ -21,9 +21,9 @@ appId: com.headlamp.uno.stage
 - inputText: "Headlamp@123"
 - waitForAnimationToEnd
 - tapOn: "Sign In"
-- hideKeyboard
 - waitForAnimationToEnd
-- tapOn: "sign-in-button"
+- tapOn:
+    id: "sign-in-button-testid"
 - waitForAnimationToEnd
 - assertNoDefectsWithAI
 
