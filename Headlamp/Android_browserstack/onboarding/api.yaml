@@ -66,26 +66,15 @@ env:
           id: "android:id/numberpicker_input"
           index: 2
         direction: "UP"
-        duration: 4000
-- tapOn:
-    id: "android:id/numberpicker_input"
-    index: 2
-- repeat:
-    while:
-      notVisible: "15"
-    commands:
-    - swipe:
-        from:
-          id: "android:id/numberpicker_input"
-          index: 1
-        direction: "UP"
-        duration: 4000
+        duration: 10000
+
 - tapOn:
     id: "android:id/button1"
 - assertVisible: "Thanks for your interest. \n\nHowever, due to privacy and safety\
     \ regulations, this app is only available to users aged 13 and older."
 - tapOn:
-    id: "right-icon-adornment"
+    id: "android:id/button1"
+    retryTapIfNoChange: false
 - repeat:
     while:
       notVisible: "2003"
@@ -97,19 +86,14 @@ env:
         direction: "down"
         duration: 12000
 - tapOn:
-    id: "segmented-button-Male"
+    id: "android:id/button1"
+    retryTapIfNoChange: false
 - tapOn:
     id: "button"
 - assertVisible: "Health records"
 - tapOn: "Address"
 - inputText: 1223
 - tapOn: "1223 East 233rd Street, The Bronx, NY, USA"
-- tapOn:
-    id: "button"
-- tapOn:
-    id: "text-input-outlined-label-inactive"
-    index: 0
-- inputText: "Manhattan"
 - tapOn:
     id: "button"
 - tapOn:
@@ -124,6 +108,7 @@ env:
     id: "right-icon-adornment"
 - tapOn:
     id: "android:id/button1"
+    retryTapIfNoChange: false
 - tapOn:
     id: "button"
 - assertVisible: "Username:"
