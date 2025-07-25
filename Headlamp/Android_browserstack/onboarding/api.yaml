@@ -37,4 +37,156 @@ env:
 - waitForAnimationToEnd
 - inputText: "${output.OTP_CODE}"
 - waitForAnimationToEnd
-
+- assertVisible: "We value your privacy"
+- assertVisible: "Medical record access"
+- assertVisible: "Terms & Privacy"
+- tapOn:
+    id: "button"
+- assertVisible: "We are not a crisis service"
+- tapOn:
+    id: "button"
+- tapOn: "onboarding-continue"
+- tapOn:
+    id: "button"
+- tapOn:
+    id: "button"
+- tapOn:
+    id: "button"
+- tapOn: "Health records connection"
+- assertVisible: "{FIRST_NAME}"
+- assertVisible: "{LAST_NAME}"
+- assertVisible: "We value your privacy"
+- assertVisible: "Medical record access"
+- assertVisible: "Terms & Privacy"
+- tapOn:
+    id: "button"
+- assertVisible: "We are not a crisis service"
+- assertVisible: "We do not actively monitor your responses, interactions, and activity.\
+    \ If you are experiencing a crisis, please:"
+- tapOn:
+    id: "button"
+- tapOn: "onboarding-continue"
+- tapOn:
+    id: "button"
+- tapOn:
+    id: "button"
+- tapOn:
+    id: "button"
+- tapOn: "Health records connection"
+- tapOn:
+    id: "text-input-outlined"
+- tapOn:
+    id: "right-icon-adornment"
+- repeat:
+    while:
+      notVisible: "2019"
+    commands:
+    - swipe:
+        from:
+          id: "android:id/numberpicker_input"
+          index: 2
+        direction: "UP"
+        duration: 4000
+- tapOn:
+    id: "android:id/numberpicker_input"
+    index: 2
+- repeat:
+    while:
+      notVisible: "15"
+    commands:
+    - swipe:
+        from:
+          id: "android:id/numberpicker_input"
+          index: 1
+        direction: "UP"
+        duration: 4000
+- tapOn:
+    id: "android:id/button1"
+- assertVisible: "Thanks for your interest. \n\nHowever, due to privacy and safety\
+    \ regulations, this app is only available to users aged 13 and older."
+- tapOn:
+    id: "right-icon-adornment"
+- repeat:
+    while:
+      notVisible: "2003"
+    commands:
+    - swipe:
+        from:
+          id: "android:id/numberpicker_input"
+          index: 2
+        direction: "down"
+        duration: 12000
+- tapOn:
+    id: "segmented-button-Male"
+- tapOn:
+    id: "button"
+- assertVisible: "Health records"
+- tapOn: "Address"
+- inputText: 1223
+- tapOn: "1223 East 233rd Street, The Bronx, NY, USA"
+- tapOn:
+    id: "button"
+- tapOn:
+    id: "text-input-outlined-label-inactive"
+    index: 0
+- inputText: "Manhattan"
+- tapOn:
+    id: "button"
+- tapOn:
+    id: "text-input-outlined"
+    index: 0
+- inputText : "{Email}"
+- tapOn:
+    id: "checked-email"
+- tapOn:
+    id: "button"
+- tapOn:
+    id: "right-icon-adornment"
+- tapOn:
+    id: "android:id/button1"
+- tapOn:
+    id: "button"
+- assertVisible: "Username:"
+- assertVisible: "Create your password"
+- assertVisible: "{Email}"
+- tapOn:
+    id: "text-input-outlined"
+- inputText: "Headlamp@123"
+- tapOn:
+    id: "button"
+- assertVisible: "Enable notifications"
+- tapOn:
+    id: "button"
+- runFlow:
+    when:
+      visible:
+        id: "com.android.permissioncontroller:id/permission_allow_button"
+    commands:
+    - tapOn:
+        id: "com.android.permissioncontroller:id/permission_allow_button"
+- assertVisible: " You have charged your 1st battery."
+- tapOn:
+    id: "button"
+- runFlow:
+    when:
+      visible: "Higher power level = better insights"
+    commands:
+    - tapOn:
+        point: "50%,47%"
+    - waitForAnimationToEnd:
+        timeout: 5000
+- assertVisible: "Tap “Allow all”  on the next screen for the best experience"
+- tapOn:
+    id: "button"
+- tapOn:
+    id: "button"
+- runFlow:
+    when:
+      visible: "SUGGEST ACTIVITIES FOR ME"
+    commands:
+    - tapOn: "SUGGEST ACTIVITIES FOR ME"
+    - waitForAnimationToEnd:
+        timeout: 9000
+    - tapOn: "ACCEPT ACTIVITIES"
+    - tapOn: "CONTINUE"
+    - tapOn: "CONTINUE"
