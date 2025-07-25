@@ -98,7 +98,9 @@ appId: "{APP_ID}"
     id: "batteries-to-charge"
 - assertVisible: "Power level"
 - assertVisible: "Charge all for bonus points"
-- tapOn: "Home"
+- killApp
+- launchApp:
+   appId: "{APP_ID}"
 - tapOn:
     id: "unviewed-suggestions"
 - tapOn: "GOT IT"
@@ -107,7 +109,9 @@ appId: "{APP_ID}"
 - tapOn:
     text: "SUGGESTIONS"
     index: 0
-- tapOn: "Home"
+- killApp
+- launchApp:
+   appId: "{APP_ID}"
 - tapOn:
     id: "hypothesis-drawer"
 - assertVisible: "Latest hypothesis"
@@ -120,6 +124,13 @@ appId: "{APP_ID}"
     id: "progress-bar"
 - assertVisible: "Rewards"
 - "back"
+- tapOn:
+    id: "notification-bell-icon"
+- runFlow:
+    when:
+      visible: "Enable"
+    commands:
+        - tapOn: "Enable"
 
 
 
