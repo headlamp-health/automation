@@ -89,6 +89,8 @@ env:
     id: "android:id/button1"
     retryTapIfNoChange: false
 - tapOn:
+    id: "segmented-button-Male"
+- tapOn:
     id: "button"
 - assertVisible: "Health records"
 - tapOn: "Address"
