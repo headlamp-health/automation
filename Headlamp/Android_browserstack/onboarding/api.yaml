@@ -58,6 +58,7 @@ env:
 - tapOn:
     id: "right-icon-adornment"
 - repeat:
+    times: 4
     while:
       notVisible: "2019"
     commands:
@@ -76,15 +77,16 @@ env:
     id: "right-icon-adornment"
     retryTapIfNoChange: false
 - repeat:
+    times: 5
     while:
-      notVisible: "2003"
+      notVisible: "2004"
     commands:
     - swipe:
         from:
           id: "android:id/numberpicker_input"
           index: 2
         direction: "down"
-        duration: 12000
+        duration: 10000
 - tapOn:
     id: "android:id/button1"
     retryTapIfNoChange: false
