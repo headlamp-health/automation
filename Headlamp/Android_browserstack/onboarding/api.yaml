@@ -73,7 +73,7 @@ env:
 - assertVisible: "Thanks for your interest. \n\nHowever, due to privacy and safety\
     \ regulations, this app is only available to users aged 13 and older."
 - tapOn:
-    id: "android:id/button1"
+    id: "right-icon-adornment"
     retryTapIfNoChange: false
 - repeat:
     while:
