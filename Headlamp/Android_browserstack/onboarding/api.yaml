@@ -110,10 +110,11 @@ env:
     id: "text-input-outlined"
     index: 0
 - inputText : "{Email}"
+- waitForAnimationToEnd
+- pressKey : enter
+- waitForAnimationToEnd
 - tapOn:
     id: "checked-email"
-- tapOn:
-    id: "button"
 - tapOn:
     id: "right-icon-adornment"
 - tapOn:
