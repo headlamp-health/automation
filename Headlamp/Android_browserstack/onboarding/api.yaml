@@ -100,7 +100,10 @@ env:
 - waitForAnimationToEnd:
     timeout: 5000
 
-- tapOn: "1223 East 233rd Street, The Bronx, NY, USA"
+
+- tapOn:
+    text: "1223 East 233rd Street, The Bronx, NY, USA"
+    index: 1
 - tapOn:
     id: "button"
 - tapOn:
