@@ -94,7 +94,7 @@ env:
     id: "button"
 - assertVisible: "Health records"
 - tapOn: "Address"
-- inputText: 1223
+- inputText: "1223 East 233rd Street, The Bronx, NY, USA"
 - waitForAnimationToEnd
 - pressKey: Enter
 - waitForAnimationToEnd:
