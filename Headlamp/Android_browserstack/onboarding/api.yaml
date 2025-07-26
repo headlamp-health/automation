@@ -96,7 +96,7 @@ env:
 - tapOn: "Address"
 - inputText: 1223
 - waitForAnimationToEnd
-- hideKeyboard
+- pressKey: Enter
 - waitForAnimationToEnd:
     timeout: 5000
 
