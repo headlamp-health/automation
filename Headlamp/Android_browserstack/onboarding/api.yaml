@@ -128,6 +128,9 @@ env:
 - tapOn:
     id: "text-input-outlined"
 - inputText: "Headlamp@123"
+- waitForAnimationToEnd
+- pressKey : enter
+- waitForAnimationToEnd
 - tapOn:
     id: "button"
 - assertVisible: "Enable notifications"
