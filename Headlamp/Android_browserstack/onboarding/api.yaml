@@ -95,6 +95,11 @@ env:
 - assertVisible: "Health records"
 - tapOn: "Address"
 - inputText: 1223
+- waitForAnimationToEnd
+- hideKeyboard
+- waitForAnimationToEnd:
+    timeout: 5000
+
 - tapOn: "1223 East 233rd Street, The Bronx, NY, USA"
 - tapOn:
     id: "button"
