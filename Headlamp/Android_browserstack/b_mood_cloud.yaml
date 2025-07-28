@@ -116,23 +116,41 @@ appId: "{APP_ID}"
 - waitForAnimationToEnd
 - tapOn:
     id: "submit-button"
+- runFlow:
+     when:
+        visible:
+            id: "Education-chip"
+        commands:
+            - tapOn:
+                id: "Education-chip"
+            - waitForAnimationToEnd
+            - tapOn:
+                id: "Family-chip"
 
-- tapOn:
-    id: "Education-chip"
-- waitForAnimationToEnd
-- tapOn:
-    id: "Family-chip"
+- runFlow:
+    when:
+        visible:
+            id: Relationship - Betrayal and Trust Issues-chip
+    commands:
+        - tapOn:
+            id: Relationship - Betrayal and Trust Issues-chip
+        - tapOn:
+            id: Relationship - Separation-chip
 - tapOn:
     id: "submit-button"
-
-- tapOn:
-    id: "Financial Struggles-chip"
-- waitForAnimationToEnd
-- tapOn:
-    id:  "Performance Pressures-chip"
-- waitForAnimationToEnd
-- tapOn:
-    id: "submit-button"
+- runFlow:
+    when:
+        visible:
+            id: "Financial Struggles-chip"
+    commands:
+        - tapOn:
+            id: "Financial Struggles-chip"
+        - waitForAnimationToEnd
+        - tapOn:
+            id:  "Performance Pressures-chip"
+        - waitForAnimationToEnd
+        - tapOn:
+            id: "submit-button"
 
 - waitForAnimationToEnd
 - runFlow:
@@ -325,22 +343,41 @@ appId: "{APP_ID}"
 - tapOn:
     id: "submit-button"
 
-- tapOn:
-    id: "Education-chip"
-- waitForAnimationToEnd
-- tapOn:
-    id: "Family-chip"
-- tapOn:
-    id: "submit-button"
+- runFlow:
+     when:
+        visible:
+            id: "Education-chip"
+        commands:
+            - tapOn:
+                id: "Education-chip"
+            - waitForAnimationToEnd
+            - tapOn:
+                id: "Family-chip"
 
-- tapOn:
-    id: "Financial Struggles-chip"
-- waitForAnimationToEnd
-- tapOn:
-    id:  "Performance Pressures-chip"
-- waitForAnimationToEnd
+- runFlow:
+    when:
+        visible:
+            id: Relationship - Betrayal and Trust Issues-chip
+    commands:
+        - tapOn:
+            id: Relationship - Betrayal and Trust Issues-chip
+        - tapOn:
+            id: Relationship - Separation-chip
 - tapOn:
     id: "submit-button"
+- runFlow:
+    when:
+        visible:
+            id: "Financial Struggles-chip"
+    commands:
+        - tapOn:
+            id: "Financial Struggles-chip"
+        - waitForAnimationToEnd
+        - tapOn:
+            id:  "Performance Pressures-chip"
+        - waitForAnimationToEnd
+        - tapOn:
+            id: "submit-button"
 
 - waitForAnimationToEnd
 - runFlow:
