@@ -111,7 +111,6 @@ appId: "{APP_ID}"
 - scrollUntilVisible:
     element:
       text: "Cognitive assessment (Stroop)"
-      index: 1
     direction: DOWN
 - assertVisible:
     text: "Energy"
@@ -158,6 +157,7 @@ appId: "{APP_ID}"
     text: "Stroop (mode)"
     leftOf:
       text: "Energy (avg)"
+
 
 
 
