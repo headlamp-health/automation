@@ -117,15 +117,15 @@ appId: "{APP_ID}"
 - tapOn:
     id: "submit-button"
 - runFlow:
-     when:
+    when:
         visible:
             id: "Education-chip"
-        commands:
-            - tapOn:
-                id: "Education-chip"
-            - waitForAnimationToEnd
-            - tapOn:
-                id: "Family-chip"
+    commands:
+        - tapOn:
+             id: "Education-chip"
+        - waitForAnimationToEnd
+        - tapOn:
+             id: "Family-chip"
 
 - runFlow:
     when:
@@ -344,15 +344,15 @@ appId: "{APP_ID}"
     id: "submit-button"
 
 - runFlow:
-     when:
+    when:
         visible:
             id: "Education-chip"
-        commands:
-            - tapOn:
-                id: "Education-chip"
-            - waitForAnimationToEnd
-            - tapOn:
-                id: "Family-chip"
+    commands:
+        - tapOn:
+             id: "Education-chip"
+        - waitForAnimationToEnd
+        - tapOn:
+             id: "Family-chip"
 
 - runFlow:
     when:
