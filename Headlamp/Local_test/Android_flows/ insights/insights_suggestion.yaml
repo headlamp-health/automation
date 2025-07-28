@@ -4,33 +4,73 @@ appId: com.headlamp.uno.stage
 - launchApp:
    appId: com.headlamp.uno.stage
 - tapOn: "Insights"
+-  runFlow:
+        when:
+            visible:
+                text: "Got IT"
+        commands:
+            - tapOn: 
+               text:  "Got IT"   
+
 - swipe:
     from:
       text: activities
     direction: left
-- tapOn:
-    text: "Moods"    
 - tapOn:
     text: "SUGGESTIONS"
 - assertVisible:
     id: "segmented-button-Days"
 - assertNoDefectsWithAI
 - tapOn:
-    point: "94%,49%"
+    point: 50%,63%
 - assertVisible: "Suggestions"
 - assertNoDefectsWithAI
 - runFlow:
     when:
       visible:
-        id: "button"
+        text: "READ"
     commands:
       - tapOn:
           id: "button"
       - assertNoDefectsWithAI    
       - tapOn: "Done"    
       - back
-      
-
+- runFlow:
+    when:
+      visible:
+        text: "WATCH"
+    commands:
+      - tapOn:
+          id: "button"
+      - assertNoDefectsWithAI    
+      - assertVisible: "Share"
+      - assertVisible: "YouTube Home"
+      - tapOn: "Done"    
+      - back
+- tapOn:
+    point: "50%,72%"
+- runFlow:
+    when:
+      visible:
+        text: "READ"
+    commands:
+      - tapOn:
+          id: "button"
+      - assertNoDefectsWithAI    
+      - tapOn: "Done"    
+      - back
+- runFlow:
+    when:
+      visible:
+        text: "WATCH"
+    commands:
+      - tapOn:
+          id: "button"
+      - assertNoDefectsWithAI    
+      - assertVisible: "Share"
+      - assertVisible: "YouTube Home"
+      - tapOn: "Done"    
+      - back
 
 
 

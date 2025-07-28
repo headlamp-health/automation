@@ -42,93 +42,137 @@ appId: com.headlamp.uno
       - waitForAnimationToEnd
 - swipe:
     direction: DOWN      
-- assertVisible : UCLA Loneliness Scale
+- tapOn:
+    text: "Never"
+    index: 0
+    below:
+      text: "1 of 20"
 
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "2 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "3 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "4 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "5 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "6 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "7 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "8 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "9 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "10 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "11 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "12 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "13 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "14 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "15 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "16 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "17 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "18 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
-- waitForAnimationToEnd
+    below:
+      text: "19 of 20"
+
 - tapOn:
-    text: "never"
+    text: "Never"
     index: 0
+    below:
+      text: "20 of 20"
+
 - waitForAnimationToEnd
 - tapOn:
-    text: "never"
-    index: 0
-- waitForAnimationToEnd
-- tapOn:
-    text: "never"
-    index: 1
-- waitForAnimationToEnd
-- tapOn:
-    text: "DONE"
-- assertVisible : assessment Complete
-- assertVisible : UCLA Loneliness Scale
+    id: "button"
+
+-  runFlow:
+        when:
+            visible:
+                text: "Got IT"
+        commands:
+            - tapOn: 
+               text:  "Got IT"   
+
+- assertVisible: "Assessment complete"
+- assertVisible: "UCLA Loneliness Scale"
