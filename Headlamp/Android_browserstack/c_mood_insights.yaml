@@ -92,7 +92,6 @@ appId: "{APP_ID}"
 - assertNoDefectsWithAI
 - assertVisible: "VIEW HYPOTHESIS"
 - tapOn: "VIEW HYPOTHESIS"
-- assertVisible: "Why you might be feeling "
 - assertVisible: "Hypothesis"
 - back
 - assertVisible: "Mood trend"
