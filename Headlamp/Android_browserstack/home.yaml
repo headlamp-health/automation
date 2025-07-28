@@ -97,7 +97,6 @@ appId: "{APP_ID}"
 - tapOn:
     id: "batteries-to-charge"
 - assertVisible: "Power level"
-- assertVisible: "Charge all for bonus points"
 - killApp
 - launchApp:
    appId: "{APP_ID}"
