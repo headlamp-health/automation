@@ -101,14 +101,38 @@ appId: "{APP_ID}"
 - killApp
 - launchApp:
    appId: "{APP_ID}"
-- tapOn:
-    id: "unviewed-suggestions"
-- tapOn: "GOT IT"
-- assertVisible:
-    text: "Insights"
-- tapOn:
-    text: "SUGGESTIONS"
-    index: 0
+- runFlow:
+    when:
+      visible: "Log mood to\nview\nsuggestions"
+    commands:
+        - tapOn:
+            id: "unviewed-suggestions"
+        -  runFlow:
+                when:
+                    visible:
+                        text: "Got IT"
+                commands:
+                    - tapOn: 
+                         text:  "Got IT"   
+                    - assertVisible:
+                        id: "android:id/navigationBarBackground"   
+- runFlow:
+    when:
+      visible: "Suggestions\nto view"
+    commands:
+        - tapOn:
+            id: "unviewed-suggestions"
+        -  runFlow:
+                when:
+                    visible:
+                        text: "Got IT"
+                commands:
+                    - tapOn: 
+                         text:  "Got IT"   
+                    - assertVisible:
+                        text: "Insights"
+                    - assertVisible:
+                        text: "SUGGESTIONS"
 - killApp
 - launchApp:
    appId: "{APP_ID}"
