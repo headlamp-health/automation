@@ -114,10 +114,8 @@ appId: "{APP_ID}"
     direction: DOWN
 - assertVisible:
     text: "Energy"
-    index: 1
     leftOf:
       text: "Alcohol"
-      index: 1
 - scrollUntilVisible:
     element:
       text: "Select comparison"
